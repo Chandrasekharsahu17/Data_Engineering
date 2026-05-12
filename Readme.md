@@ -75,7 +75,7 @@ That’s your revision. No flashcards needed.
 
 **Topics:** Data Manipulation & Analysis · Data Source Reading
 
-- [ ] 👁️ Watch: Data Manipulation & Analysis (25 min)
+- [X] 👁️ Watch: Data Manipulation & Analysis (25 min)
 - [ ] 👁️ Watch: Data Source Reading (15 min)
 - [ ] ⌨️ Build: Load a CSV → filter rows → group by a column → compute mean/sum → export result
 - [ ] ⌨️ Build: Read the same data from JSON and Excel. Compare the approach.
