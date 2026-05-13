@@ -153,9 +153,9 @@ That’s your revision. No flashcards needed.
 
 - [X] 👁️ Watch: What is Big Data — Practical Example (18 min)
 - [X] 👁️ Watch: 5 V’s of Big Data (22 min)
-- [ ] 👁️ Watch: Big Data and Distributed Systems (18 min)
-- [ ] 👁️ Watch: Designing a Good Big Data System (11 min)
-- [ ] 👁️ Watch: On-Premise vs Cloud (20 min)
+- [X] 👁️ Watch: Big Data and Distributed Systems (18 min)
+- [X] 👁️ Watch: Designing a Good Big Data System (11 min)
+- [X] 👁️ Watch: On-Premise vs Cloud (20 min)
 - [ ] ⌨️ Build: Draw the 5 V’s with a code cell using `print()` or a markdown table — make it your own cheatsheet
 - [ ] 🗣️ Explain: *“Why can’t a single machine handle Big Data? What does ‘distributed’ actually mean?”*
 
