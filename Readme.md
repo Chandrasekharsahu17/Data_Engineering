@@ -77,7 +77,7 @@ That’s your revision. No flashcards needed.
 
 - [X] 👁️ Watch: Data Manipulation & Analysis (25 min)
 - [ ] 👁️ Watch: Data Source Reading (15 min)
-- [ ] ⌨️ Build: Load a CSV → filter rows → group by a column → compute mean/sum → export result
+- [X] ⌨️ Build: Load a CSV → filter rows → group by a column → compute mean/sum → export result
 - [ ] ⌨️ Build: Read the same data from JSON and Excel. Compare the approach.
 - [ ] 🗣️ Explain at top of notebook: *“What is the difference between .loc and .iloc? When do I use groupby vs pivot_table?”*
 
