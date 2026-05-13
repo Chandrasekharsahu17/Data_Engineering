@@ -95,7 +95,7 @@ That’s your revision. No flashcards needed.
 
 **Topics:** Python with SQLite · Logging · Multiple Loggers · Real World Logging
 
-- [ ] 👁️ Watch: Python with SQLite (17 min)
+- [X] 👁️ Watch: Python with SQLite (17 min)
 - [ ] 👁️ Watch: Logging in Python (15 min)
 - [ ] 👁️ Watch: Logging with Multiple Loggers (5 min)
 - [ ] 👁️ Watch: Logging — Real World Examples (8 min)
@@ -151,8 +151,8 @@ That’s your revision. No flashcards needed.
 
 **Topics:** What is Big Data · 5 V’s · Distributed Systems · System Design · On-Premise vs Cloud
 
-- [ ] 👁️ Watch: What is Big Data — Practical Example (18 min)
-- [ ] 👁️ Watch: 5 V’s of Big Data (22 min)
+- [X] 👁️ Watch: What is Big Data — Practical Example (18 min)
+- [X] 👁️ Watch: 5 V’s of Big Data (22 min)
 - [ ] 👁️ Watch: Big Data and Distributed Systems (18 min)
 - [ ] 👁️ Watch: Designing a Good Big Data System (11 min)
 - [ ] 👁️ Watch: On-Premise vs Cloud (20 min)
