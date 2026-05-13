@@ -157,7 +157,7 @@ That’s your revision. No flashcards needed.
 - [X] 👁️ Watch: Designing a Good Big Data System (11 min)
 - [X] 👁️ Watch: On-Premise vs Cloud (20 min)
 - [X] ⌨️ Build: Draw the 5 V’s with a code cell using `print()` or a markdown table — make it your own cheatsheet
-- [ ] 🗣️ Explain: *“Why can’t a single machine handle Big Data? What does ‘distributed’ actually mean?”*
+- [X] 🗣️ Explain: *“Why can’t a single machine handle Big Data? What does ‘distributed’ actually mean?”*
 
 **Practice Tasks**
 
