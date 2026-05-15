@@ -1,0 +1,16 @@
+emp_id,name,dept_id,salary,manager_id,hire_date
+1,Vikram Rao,1,120000,,2017-03-10
+2,Anjali Singh,1,95000,1,2019-07-15
+3,Rahul Mehta,1,82000,1,2020-11-01
+4,Divya Nair,2,105000,,2018-05-20
+5,Karan Patel,2,78000,4,2020-08-14
+6,Shreya Das,2,72000,4,2021-03-22
+7,Aditya Kumar,3,130000,,2016-09-05
+8,Pooja Iyer,3,98000,7,2019-01-30
+9,Nikhil Sharma,3,87000,7,2020-06-18
+10,Preethi Reddy,3,76000,8,2022-02-10
+11,Suresh Gupta,4,88000,,2018-11-25
+12,Rekha Joshi,4,71000,11,2021-07-08
+13,Manish Tiwari,4,68000,11,2022-09-14
+14,Sonal Verma,1,89000,1,2020-04-28
+15,Arjun Bose,2,85000,4,2021-10-05

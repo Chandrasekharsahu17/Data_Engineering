@@ -1,0 +1,21 @@
+product_id,name,category,price,stock
+1,MacBook Pro,Electronics,125000,10
+2,iPhone 15,Electronics,79000,25
+3,Samsung Galaxy S24,Electronics,74000,30
+4,iPad Pro,Electronics,95000,15
+5,Sony WH-1000XM5,Electronics,29000,40
+6,Mechanical Keyboard,Accessories,8500,55
+7,Logitech MX Master,Accessories,6500,60
+8,Dell 27 Monitor,Electronics,28000,20
+9,Standing Desk,Furniture,35000,8
+10,Ergonomic Chair,Furniture,22000,12
+11,USB-C Hub,Accessories,2500,100
+12,Webcam HD,Accessories,4500,45
+13,NoiseFit Watch,Wearables,8000,35
+14,Fire TV Stick,Electronics,4500,80
+15,Kindle Paperwhite,Electronics,14000,50
+16,Echo Dot,Smart Home,4000,90
+17,Smart Bulb 4-Pack,Smart Home,1800,120
+18,Air Purifier,Appliances,18000,18
+19,Robot Vacuum,Appliances,32000,10
+20,Portable Speaker,Electronics,6000,65

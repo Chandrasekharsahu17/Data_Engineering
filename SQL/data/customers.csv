@@ -1,0 +1,16 @@
+customer_id,name,city,age,tier,joined_date
+1,Raj Sharma,Mumbai,28,Silver,2020-03-15
+2,Priya Mehta,Delhi,34,Gold,2018-07-01
+3,Amit Kumar,Pune,22,Bronze,2022-11-20
+4,Sneha Patel,Mumbai,29,Gold,2019-05-10
+5,Dev Nair,Bangalore,31,Silver,2021-01-05
+6,Aisha Khan,Delhi,26,Bronze,2023-02-18
+7,Kabir Singh,Chennai,45,Gold,2017-09-30
+8,Meera Iyer,Mumbai,38,Silver,2016-04-22
+9,Rohan Gupta,Pune,24,Bronze,2023-08-14
+10,Nisha Verma,Bangalore,32,Gold,2019-12-01
+11,Arjun Das,Delhi,27,Silver,2021-06-25
+12,Tanya Roy,Mumbai,41,Gold,2015-11-08
+13,Siddharth Joshi,Chennai,35,Bronze,2022-04-17
+14,Kavya Reddy,Hyderabad,29,Silver,2020-09-03
+15,Manish Tiwari,Mumbai,47,Gold,2014-07-19
