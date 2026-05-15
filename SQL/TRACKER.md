@@ -17,7 +17,7 @@
 ## 📦 Module 1 — Basics
 | # | Topic | Study | Queries | Explain | Done |
 |---|-------|:-----:|:-------:|:-------:|:----:|
-| 1.1 | SELECT, FROM, LIMIT | ☐ | ☐ | ☐ | ☐ |
+| 1.1 | SELECT, FROM, LIMIT | ✅ | ✅ |✅ | ✅ |
 | 1.2 | WHERE Clause | ☐ | ☐ | ☐ | ☐ |
 | 1.3 | ORDER BY and DISTINCT | ☐ | ☐ | ☐ | ☐ |
 | 1.4 | NULL Handling | ☐ | ☐ | ☐ | ☐ |
