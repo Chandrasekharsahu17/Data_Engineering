@@ -129,25 +129,29 @@ ORDER BY city ASC;
 
 -- ⌨️ Q1: Get all products sorted by price descending
 -- YOUR QUERY:
+select * from products
+order by price desc;
 
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Get a list of distinct cities where customers live
 -- YOUR QUERY:
-
+select distinct(city) from customers
 
 -- COMMAND ----------
 
 -- ⌨️ Q3: Get the 3 most expensive products — show name, category, price
 -- YOUR QUERY:
-
+select name,category,price from products
+order by price desc
+Limit 3;
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: Does ORDER BY happen before or after WHERE in SQL execution?
 --             Why does this matter?
--- YOUR ANSWER:
+-- YOUR ANSWER:where is like filter that is added to table and order by is like sorting it from desc or aescending
 
 
 -- COMMAND ----------
@@ -157,6 +161,8 @@ ORDER BY city ASC;
 -- MAGIC ## ✦ Topic 1.4 — NULL Handling
 -- MAGIC > NULL means unknown. It is NOT zero or empty string.
 -- MAGIC > Use: IS NULL, IS NOT NULL, COALESCE, IFNULL, NULLIF
+-- MAGIC
+-- MAGIC
 
 -- COMMAND ----------
 
@@ -169,6 +175,8 @@ WHERE manager_id IS NULL;   -- these are the top-level managers
 
 -- ⌨️ Q1: Find all orders where customer_id IS NULL
 -- YOUR QUERY:
+select * from orders
+where customer_id is null;
 
 
 -- COMMAND ----------
@@ -176,19 +184,22 @@ WHERE manager_id IS NULL;   -- these are the top-level managers
 -- ⌨️ Q2: Show all employees — if manager_id is NULL, show 0 instead
 --        (use COALESCE)
 -- YOUR QUERY:
+select *,COALESCE(manager_id,"0") as manage from employees
 
 
 -- COMMAND ----------
 
 -- ⌨️ Q3: Find customers where BOTH city and tier are NOT null
 -- YOUR QUERY:
+select * from customers
+where city is not null and tier is not null
 
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: Why does WHERE manager_id = NULL not work?
 --             What is the difference between COALESCE and IFNULL?
--- YOUR ANSWER:
+-- YOUR ANSWER:COALESCE is used to check fit null values in a list and ifNULL is used to check a value is null or not and replace it with any replacement
 
 
 -- COMMAND ----------
