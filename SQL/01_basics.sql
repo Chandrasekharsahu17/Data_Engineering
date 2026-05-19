@@ -223,20 +223,23 @@ FROM employees;
 
 -- ⌨️ Q1: Show product name and price with 18% GST added — call it price_with_gst
 -- YOUR QUERY:
-
+select name, price ,price*1.18 as price_with_gst
+from products
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Show employee name and salary — rename salary to monthly_pay
 -- YOUR QUERY:
-
+select name , salary as monthly_pay
+from employees
 
 -- COMMAND ----------
 
 -- ⌨️ Q3: Show order_id, total, and a column 'total_after_discount' = total * 0.9
 --        Also add a column 'savings' = total - total_after_discount
 -- YOUR QUERY:
-
+select order_id,total,total*0.9 as total_after_discount,total - total*0.9 as savings
+from orders
 
 -- COMMAND ----------
 
@@ -244,9 +247,13 @@ FROM employees;
 --             Try it — write the query, run it, and explain what happens and why.
 -- YOUR EXPERIMENT:
 
+select name , salary as monthly_pay
+from employees
+where salary > 50000;
 
 -- YOUR ANSWER:
-
+-- No, you cannot use an alias in a WHERE clause. The WHERE clause is evaluated BEFORE the SELECT clause,
+-- so the alias 'monthly_pay' doesn't exist yet when WHERE is processed. You must use the original column name 'salary'.
 
 -- COMMAND ----------
 
@@ -259,9 +266,9 @@ FROM employees;
 -- MAGIC | Topic | Watched? | All 3 Queries? | Explained? |
 -- MAGIC |-------|----------|----------------|------------|
 -- MAGIC | 1.1 SELECT FROM LIMIT | ✅ | ✅ | ✅ |
--- MAGIC | 1.2 WHERE | ☐ | ☐ | ☐ |
--- MAGIC | 1.3 ORDER BY DISTINCT | ☐ | ☐ | ☐ |
--- MAGIC | 1.4 NULL Handling | ☐ | ☐ | ☐ |
--- MAGIC | 1.5 Aliases & Expressions | ☐ | ☐ | ☐ |
+-- MAGIC | 1.2 WHERE | ✅ | ✅ | ✅ |
+-- MAGIC | 1.3 ORDER BY DISTINCT | ✅ | ✅ | ✅ |
+-- MAGIC | 1.4 NULL Handling | ✅ | ✅ | ✅ |
+-- MAGIC | 1.5 Aliases & Expressions | ✅ | ✅ | ✅ |
 -- MAGIC
 -- MAGIC **When all rows are done → push to GitHub → move to 02_filtering.sql**
