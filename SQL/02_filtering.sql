@@ -37,6 +37,7 @@ LIMIT 5;
 
 -- ⌨️ Q1: Show all customer names in UPPERCASE with their city in lowercase
 -- YOUR QUERY:
+select upper(name),lower(city) from customers;
 
 
 -- COMMAND ----------
@@ -44,7 +45,8 @@ LIMIT 5;
 -- ⌨️ Q2: Find products where the name contains 'pro' (case insensitive)
 --        Hint: use LOWER() + LIKE
 -- YOUR QUERY:
-
+Select name from products
+where lower(name)  LIKE "%pro%";
 
 -- COMMAND ----------
 
@@ -52,13 +54,11 @@ LIMIT 5;
 --        Concat it with their customer_id to make a unique code like 'RAJ001'
 -- YOUR QUERY:
 
-
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: What is the difference between LIKE '%abc%' and LIKE 'abc%'?
 --             Which one is faster in a large table and why?
 -- YOUR ANSWER:
-
 
 -- COMMAND ----------
 

@@ -249,7 +249,7 @@ from orders
 
 select name , salary as monthly_pay
 from employees
-where salary > 50000;
+-- where salary > 50000;
 
 -- YOUR ANSWER:
 -- No, you cannot use an alias in a WHERE clause. The WHERE clause is evaluated BEFORE the SELECT clause,
