@@ -173,11 +173,11 @@ That’s your revision. No flashcards needed.
 
 **Topics:** DB vs Data Warehouse vs Data Lake · ETL vs ELT · Data Engineer’s Role
 
-- [ ] 👁️ Watch: Database vs Data Warehouse vs Data Lake (29 min)
-- [ ] 👁️ Watch: ETL vs ELT (22 min)
-- [ ] 👁️ Watch: What Does a Data Engineer Do (18 min)
-- [ ] ⌨️ Build: Create a comparison table in markdown: DB / DW / Data Lake — schema, use case, example tools
-- [ ] 🗣️ Explain: *“When would I use ETL vs ELT? What does a Data Engineer own that a Data Scientist doesn’t?”*
+- [X] 👁️ Watch: Database vs Data Warehouse vs Data Lake (29 min)
+- [X] 👁️ Watch: ETL vs ELT (22 min)
+- [X] 👁️ Watch: What Does a Data Engineer Do (18 min)
+- [X] ⌨️ Build: Create a comparison table in markdown: DB / DW / Data Lake — schema, use case, example tools
+- [X] 🗣️ Explain: *“When would I use ETL vs ELT? What does a Data Engineer own that a Data Scientist doesn’t?”*
 
 **Practice Tasks**
 
@@ -203,10 +203,10 @@ That’s your revision. No flashcards needed.
 
 **Topics:** Hadoop Intro · Properties · Ecosystem · HDFS Concepts · Architecture · Blocks · Replication · Rack Awareness
 
-- [ ] 👁️ Watch: Introduction to Hadoop (6 min)
-- [ ] 👁️ Watch: Properties of Hadoop (10 min)
-- [ ] 👁️ Watch: Hadoop Ecosystem (38 min)
-- [ ] 👁️ Watch: Intro to HDFS & Terminology (23 min)
+- [X] 👁️ Watch: Introduction to Hadoop (6 min)
+- [X] 👁️ Watch: Properties of Hadoop (10 min)
+- [X] 👁️ Watch: Hadoop Ecosystem (38 min)
+- [X] 👁️ Watch: Intro to HDFS & Terminology (23 min)
 - [ ] 👁️ Watch: HDFS Architecture (16 min)
 - [ ] 👁️ Watch: Blocks in HDFS (12 min)
 - [ ] 👁️ Watch: Replication Factor (10 min)
