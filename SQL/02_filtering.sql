@@ -53,12 +53,13 @@ where lower(name)  LIKE "%pro%";
 -- ⌨️ Q3: Extract first 3 characters of every customer name as 'code'
 --        Concat it with their customer_id to make a unique code like 'RAJ001'
 -- YOUR QUERY:
+Select concat(upper(substring(name,0,3)),customer_id) from customers
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: What is the difference between LIKE '%abc%' and LIKE 'abc%'?
 --             Which one is faster in a large table and why?
--- YOUR ANSWER:
+-- YOUR ANSWER:in the 1st one the abc string should in between a string and in 2nd one it should start with abc
 
 -- COMMAND ----------
 
@@ -84,7 +85,8 @@ LIMIT 5;
 
 -- ⌨️ Q1: Show all orders placed in January 2024
 -- YOUR QUERY:
-
+select * from orders 
+where year(order_date) = 2024 and  month(order_date)=1
 
 -- COMMAND ----------
 
