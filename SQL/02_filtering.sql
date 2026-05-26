@@ -93,6 +93,12 @@ where year(order_date) = 2024 and  month(order_date)=1
 -- ⌨️ Q2: Calculate how many days ago each order was placed
 --        Show order_id, order_date, days_ago — sorted by days_ago ascending
 -- YOUR QUERY:
+SELECT order_id,order_date,
+DATEDIFF(CURRENT_DATE,order_date) as days_ago
+from orders
+order by DATEDIFF(CURRENT_DATE,order_date) ;
+
+
 
 
 -- COMMAND ----------
@@ -100,6 +106,11 @@ where year(order_date) = 2024 and  month(order_date)=1
 -- ⌨️ Q3: Find customers who joined after 2019-01-01
 --        Show name, city, joined_date, and how many days they have been a customer
 -- YOUR QUERY:
+-- select * from customers
+select name, city, joined_date,
+datediff(current_date,joined_date) as period
+from customers
+where joined_date > '2019-01-01'
 
 
 -- COMMAND ----------
