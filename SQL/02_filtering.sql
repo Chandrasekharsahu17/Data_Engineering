@@ -117,7 +117,8 @@ where joined_date > '2019-01-01'
 
 -- 🗣️ EXPLAIN: In Spark SQL, what is the difference between DATEDIFF and months_between?
 --             Give an example where they give different answers.
--- YOUR ANSWER:
+-- YOUR ANSWER: datediff is used to calaculate difference between two dates and months between is for how many months are there in between
+
 
 
 -- COMMAND ----------
@@ -147,7 +148,12 @@ FROM customers;
 --        price < 30000 → 'Mid'
 --        else          → 'Premium'
 -- YOUR QUERY:
-
+Select * , case 
+        when price < 5000 then 'Budget'
+        when price < 30000 then 'Mid'
+        else 'Premium'
+    end as type
+from products
 
 -- COMMAND ----------
 
@@ -156,6 +162,13 @@ FROM customers;
 --        total < 5000  → 'Medium'
 --        else          → 'Large'
 -- YOUR QUERY:
+select *,case 
+    when total < 1000  then 'Small'
+    when total < 5000  then 'Medium'
+    else      'Large'
+    end as order_size   
+
+ from orders 
 
 
 -- COMMAND ----------
