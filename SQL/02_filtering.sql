@@ -232,6 +232,11 @@ LIMIT 5;
 
 -- ⌨️ Q1: Round all product prices to the nearest 1000
 -- YOUR QUERY:
+SELECT product_id,price,abs(price-1000)
+from products
+where abs(price-1000)<10
+
+
 
 
 -- COMMAND ----------
@@ -240,6 +245,14 @@ LIMIT 5;
 --        and the average order total across all orders
 --        Show order_id, total, avg_total, difference
 -- YOUR QUERY:
+
+-- select * from orders
+SELECT order_id, total, 
+avg(total) over() as avg_total,
+ABS(total - AVG(total) OVER()) AS difference
+from orders
+
+
 
 
 -- COMMAND ----------
