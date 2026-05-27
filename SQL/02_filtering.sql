@@ -177,6 +177,20 @@ select *,case
 --        Combine CASE WHEN inside a GROUP BY
 --        Expected output: Small | Medium | Large with counts
 -- YOUR QUERY:
+SELECT
+    CASE
+        WHEN total < 1000 THEN 'Small'
+        WHEN total < 5000 THEN 'Medium'
+        ELSE 'Large'
+    END AS size_bucket,
+    COUNT(*) AS order_count
+FROM orders
+GROUP BY
+    CASE
+        WHEN total < 1000 THEN 'Small'
+        WHEN total < 5000 THEN 'Medium'
+        ELSE 'Large'
+    END;
 
 
 -- COMMAND ----------
@@ -184,6 +198,15 @@ select *,case
 -- 🗣️ EXPLAIN: Can you use CASE WHEN inside an aggregate function like SUM()?
 --             Write an example that sums revenue only for completed orders using CASE inside SUM
 -- YOUR EXAMPLE + ANSWER:
+SELECT
+    SUM(
+        CASE
+            WHEN status = 'completed' THEN total
+            ELSE 0
+        END
+    ) AS completed_revenue
+FROM orders;
+
 
 
 -- COMMAND ----------
