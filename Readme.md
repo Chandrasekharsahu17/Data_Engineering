@@ -123,7 +123,7 @@ That’s your revision. No flashcards needed.
 
 **Topics:** Intermediate SQL Concepts
 
-- [ ] 👁️ Watch: SQL Section Intro + Tutorials
+- [X] 👁️ Watch: SQL Section Intro + Tutorials
 - [ ] ⌨️ Build: Write 10 queries using JOIN, GROUP BY, HAVING, subqueries
 - [ ] 🗣️ Explain: *“What is the difference between WHERE and HAVING? When do I use a subquery vs a JOIN?”*
 
@@ -207,7 +207,7 @@ That’s your revision. No flashcards needed.
 - [X] 👁️ Watch: Properties of Hadoop (10 min)
 - [X] 👁️ Watch: Hadoop Ecosystem (38 min)
 - [X] 👁️ Watch: Intro to HDFS & Terminology (23 min)
-- [ ] 👁️ Watch: HDFS Architecture (16 min)
+- [X] 👁️ Watch: HDFS Architecture (16 min)
 - [ ] 👁️ Watch: Blocks in HDFS (12 min)
 - [ ] 👁️ Watch: Replication Factor (10 min)
 - [ ] 👁️ Watch: Rack Awareness (8 min)
