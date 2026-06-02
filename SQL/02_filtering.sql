@@ -53,7 +53,7 @@ where lower(name)  LIKE "%pro%";
 -- ⌨️ Q3: Extract first 3 characters of every customer name as 'code'
 --        Concat it with their customer_id to make a unique code like 'RAJ001'
 -- YOUR QUERY:
-Select concat(upper(substring(name,0,3)),customer_id) from customers
+Select concat(upper(substring(name,1,3)),customer_id) from customers
 
 -- COMMAND ----------
 
@@ -232,9 +232,9 @@ LIMIT 5;
 
 -- ⌨️ Q1: Round all product prices to the nearest 1000
 -- YOUR QUERY:
-SELECT product_id,price,abs(price-1000)
-from products
-where abs(price-1000)<10
+SELECT product_id,round(price,-3)
+from products;
+
 
 
 
@@ -303,7 +303,8 @@ FROM orders;
 -- ⌨️ Q1: Find total revenue, avg order value, min and max order from the orders table
 --        For COMPLETED orders only
 -- YOUR QUERY:
-select sum(total),avg(total), max (total),min(total) from orders;
+select sum(total),avg(total), max (total),min(total) from orders
+where status="completed";
 
 -- COMMAND ----------
 
