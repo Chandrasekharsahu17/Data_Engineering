@@ -18,10 +18,10 @@
 | # | Topic | Study | Queries | Explain | Done |
 |---|-------|:-----:|:-------:|:-------:|:----:|
 | 1.1 | SELECT, FROM, LIMIT | ✅ | ✅ |✅ | ✅ |
-| 1.2 | WHERE Clause | ☐ | ☐ | ☐ | ☐ |
-| 1.3 | ORDER BY and DISTINCT | ☐ | ☐ | ☐ | ☐ |
-| 1.4 | NULL Handling | ☐ | ☐ | ☐ | ☐ |
-| 1.5 | Aliases and Expressions | ☐ | ☐ | ☐ | ☐ |
+| 1.2 | WHERE Clause | ✅ | ✅ |✅ | ✅ |
+| 1.3 | ORDER BY and DISTINCT | ✅ | ✅ |✅ | ✅ |
+| 1.4 | NULL Handling | ✅ | ✅ |✅ | ✅ |
+| 1.5 | Aliases and Expressions | ✅ | ✅ |✅ | ✅ |
 
 **Module 1 Complete:** ☐ &nbsp;&nbsp;&nbsp; **Notebook Reviewed:** ☐
 
@@ -30,11 +30,11 @@
 ## 📦 Module 2 — Filtering & Functions
 | # | Topic | Study | Queries | Explain | Done |
 |---|-------|:-----:|:-------:|:-------:|:----:|
-| 2.1 | String Functions | ☐ | ☐ | ☐ | ☐ |
-| 2.2 | Date Functions | ☐ | ☐ | ☐ | ☐ |
-| 2.3 | CASE WHEN | ☐ | ☐ | ☐ | ☐ |
-| 2.4 | Math Functions | ☐ | ☐ | ☐ | ☐ |
-| 2.5 | Aggregate Functions | ☐ | ☐ | ☐ | ☐ |
+| 2.1 | String Functions | ✅ | ✅ |✅ | ✅ |
+| 2.2 | Date Functions | ✅ | ✅ |✅ | ✅ |
+| 2.3 | CASE WHEN | ✅ | ✅ |✅ | ✅ |
+| 2.4 | Math Functions | ✅ | ✅ |✅ | ✅ |
+| 2.5 | Aggregate Functions | ✅ | ✅ |✅ | ✅ |
 
 **Module 2 Complete:** ☐ &nbsp;&nbsp;&nbsp; **Notebook Reviewed:** ☐
 
