@@ -262,13 +262,20 @@ from orders
 --        - their annual salary (salary * 12)
 --        - annual salary squared (use POWER)
 -- YOUR QUERY:
+select emp_id,
+round(salary,-3) as salaryy,
+salary*12 as annual_salary,
+power(salary*12,2) as  annual_salary_squared  
+ from employees
+
+
 
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: What is the difference between FLOOR and ROUND for negative numbers?
 --             FLOOR(-4.3) = ? and ROUND(-4.3) = ? — explain why.
--- YOUR ANSWER:
+-- YOUR ANSWER:1. -5 and -4
 
 
 -- COMMAND ----------
@@ -296,20 +303,24 @@ FROM orders;
 -- ⌨️ Q1: Find total revenue, avg order value, min and max order from the orders table
 --        For COMPLETED orders only
 -- YOUR QUERY:
-
+select sum(total),avg(total), max (total),min(total) from orders;
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Count of products per category
 --        Show category and product_count, sorted by count descending
 -- YOUR QUERY:
-
+select category,count(*) from products
+group by category
+order by count(*) desc;
 
 -- COMMAND ----------
 
 -- ⌨️ Q3: For employees — find avg salary, min salary, max salary, and total headcount
 --        Per department (use dept_id for now)
 -- YOUR QUERY:
+select dept_id,avg(salary) as avg_salary,min(salary) as Min_salary,max(salary) as max_salary from employees
+group by dept_id;
 
 
 -- COMMAND ----------
@@ -317,6 +328,8 @@ FROM orders;
 -- 🗣️ EXPLAIN: What is the difference between COUNT(*), COUNT(col), and COUNT(DISTINCT col)?
 --             Create a scenario where all three give DIFFERENT results and show the query.
 -- YOUR EXAMPLE + ANSWER:
+select count(*),count(category),count(distinct(category)) from products
+
 
 
 -- COMMAND ----------
@@ -327,10 +340,10 @@ FROM orders;
 -- MAGIC
 -- MAGIC | Topic | All 3 Queries? | Explained? |
 -- MAGIC |-------|----------------|------------|
--- MAGIC | 2.1 String Functions | ☐ | ☐ |
--- MAGIC | 2.2 Date Functions | ☐ | ☐ |
--- MAGIC | 2.3 CASE WHEN | ☐ | ☐ |
--- MAGIC | 2.4 Math Functions | ☐ | ☐ |
--- MAGIC | 2.5 Aggregate Functions | ☐ | ☐ |
+-- MAGIC | 2.1 String Functions | ✅ |✅ |
+-- MAGIC | 2.2 Date Functions |✅ | ✅  |
+-- MAGIC | 2.3 CASE WHEN | ✅  | ✅  |
+-- MAGIC | 2.4 Math Functions | ✅  | ✅  |
+-- MAGIC | 2.5 Aggregate Functions | ✅  | ✅  |
 -- MAGIC
 -- MAGIC **All done → push to GitHub → move to 03_aggregations.sql**
