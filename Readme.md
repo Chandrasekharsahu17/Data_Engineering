@@ -1,6 +1,8 @@
 # ⚡ THE BIG DATA ENGINEER PLAYBOOK
 
-### *Your personal guide to going from learner → builder*
+### *Chandra Sekhar Sahu — Data Engineer in Progress*
+
+### *Updated: June 2026*
 
 -----
 
@@ -9,1011 +11,377 @@
 
 -----
 
+## 🗂️ REPO STRUCTURE
+
+```
+GitHub (2 repos only — no overlap)
+│
+├── de-learning/                    ← all course learning
+│   ├── python/                     ← py01 to py09 (done ✅)
+│   ├── sql/                        ← 00_setup to 11_projects
+│   ├── bigdata/                    ← bigdata01, bigdata02
+│   ├── hadoop/                     ← hadoop01 to hadoop04
+│   ├── spark/                      ← spark01 onwards (next)
+│   ├── hive/ kafka/ docker/
+│   ├── airflow/ databricks/ azure/
+│   └── README.md  ← this file
+│
+└── de-daily-practice/              ← Python only, 45 days
+    ├── python/day01.ipynb
+    ├── python/day02.ipynb
+    └── ... day45.ipynb
+```
+
+-----
+
 ## 🧭 HOW THIS WORKS
 
-Forget daily quotas. Forget streaks. Here’s the only rule:
+**A topic is DONE when you pass all 3 layers:**
 
-**A topic is DONE when you pass all 3 layers.**
-
-```
- LAYER 1 — 👁️  WATCH      Understand the concept. Take mental notes.
- LAYER 2 — ⌨️  BUILD      Retype the code from scratch. No copy-paste.
- LAYER 3 — 🗣️  EXPLAIN    Write 3–5 lines at the top of your notebook in plain English.
-```
-
-Before starting anything new → open your **last notebook** and run it cold for 10 min.
-That’s your revision. No flashcards needed.
-
-**Practice is tied to topics, not days.** 2–3 focused tasks per topic beats 5 random questions daily. Every time.
-
------
-
-## 📊 YOUR PROGRESS SNAPSHOT
-
-```
- ✅  DONE          ████████░░░░░░░░░░░░  Python Core + NumPy + Pandas
- 📘  KNOW BASICS   ██░░░░░░░░░░░░░░░░░░  MySQL
- 🔥  UP NEXT       ░░░░░░░░░░░░░░░░░░░░  Python for Data Eng → Big Data → Spark → Cloud
-```
-
-|Phase|What You’re Learning       |Status      |
-|:---:|---------------------------|:----------:|
-|4    |Python for Data Engineering|🔥 Start Here|
-|5    |SQL Deep Dive              |⬜           |
-|6    |Big Data Fundamentals      |⬜           |
-|7    |Hadoop + HDFS              |⬜           |
-|8    |MapReduce                  |⬜           |
-|9    |YARN                       |⬜           |
-|10   |Functional Programming     |⬜           |
-|11   |Spark Core                 |⬜           |
-|12   |Spark SQL                  |⬜           |
-|13   |Spark Caching              |⬜           |
-|14   |Spark Architecture         |⬜           |
-|15   |Spark Projects             |⬜           |
-|16   |Hive                       |⬜           |
-|17   |Kafka                      |⬜           |
-|18   |Docker                     |⬜           |
-|19   |Airflow + ETL Pipeline     |⬜           |
-|20   |Databricks                 |⬜           |
-|21   |Azure End-to-End Project   |⬜           |
-|22   |Azure Synapse              |⬜           |
-
------
-
------
-
-## 🐍 PHASE 4 — Python for Data Engineering
-
-### *Finish what you started. This unlocks everything.*
-
-> The Pandas + analysis skills here are what you’ll use every single day in Spark.
-> Don’t skip the SQLite and Logging — they show up in real pipelines constantly.
-
------
-
-### 📓 `py07_data_manipulation.ipynb`
-
-**Topics:** Data Manipulation & Analysis · Data Source Reading
-
-- [X] 👁️ Watch: Data Manipulation & Analysis (25 min)
-- [ ] 👁️ Watch: Data Source Reading (15 min)
-- [X] ⌨️ Build: Load a CSV → filter rows → group by a column → compute mean/sum → export result
-- [ ] ⌨️ Build: Read the same data from JSON and Excel. Compare the approach.
-- [ ] 🗣️ Explain at top of notebook: *“What is the difference between .loc and .iloc? When do I use groupby vs pivot_table?”*
-
-**Practice Tasks**
-
-```
-1. Load any dataset (use Kaggle's Titanic CSV). Find avg age by Pclass.
-2. Read a JSON file into a DataFrame. Filter rows where a column > threshold.
-3. Export the cleaned DataFrame to a new CSV.
-```
-
------
-
-### 📓 `py08_sqlite_logging.ipynb`
-
-**Topics:** Python with SQLite · Logging · Multiple Loggers · Real World Logging
-
-- [X] 👁️ Watch: Python with SQLite (17 min)
-- [ ] 👁️ Watch: Logging in Python (15 min)
-- [ ] 👁️ Watch: Logging with Multiple Loggers (5 min)
-- [ ] 👁️ Watch: Logging — Real World Examples (8 min)
-- [ ] ⌨️ Build: Create a SQLite DB → create a table → insert 5 rows → query with WHERE clause
-- [ ] ⌨️ Build: Add a logger to your SQLite script that logs every query to a file
-- [ ] 🗣️ Explain: *“Why use SQLite over a CSV? What does a logger handler do vs a logger itself?”*
-
-**Practice Tasks**
-
-```
-1. Create a 'students' table with name, age, grade. Insert 10 rows. Query top 3.
-2. Write a Python function that logs INFO when a row is inserted, ERROR if it fails.
-3. Set up 2 loggers: one for DB events, one for app events. Both write to different files.
-```
-
------
-
-## 🔍 PHASE 5 — SQL Deep Dive
-
-### *Make your MySQL basics bulletproof before Big Data.*
-
------
-
-### 📓 `sql01_intermediate.ipynb`
-
-**Topics:** Intermediate SQL Concepts
-
-- [X] 👁️ Watch: SQL Section Intro + Tutorials
-- [ ] ⌨️ Build: Write 10 queries using JOIN, GROUP BY, HAVING, subqueries
-- [ ] 🗣️ Explain: *“What is the difference between WHERE and HAVING? When do I use a subquery vs a JOIN?”*
-
-**Practice Tasks**
-
-```
-1. Write a query: top 5 customers by total order value using GROUP BY + ORDER BY.
-2. Write a self-join query on an employee table (manager-employee relationship).
-3. Use a subquery to find all products above average price.
-```
-
------
-
------
-
-## 🌍 PHASE 6 — Big Data Fundamentals
-
-### *Before you touch a cluster — understand WHY it exists.*
-
-> This is theory but don’t rush it. Every architecture decision in Hadoop, Spark, and Kafka makes sense only after this phase. Build strong mental models here.
-
------
-
-### 📓 `bigdata01_concepts.ipynb`
-
-**Topics:** What is Big Data · 5 V’s · Distributed Systems · System Design · On-Premise vs Cloud
-
-- [X] 👁️ Watch: What is Big Data — Practical Example (18 min)
-- [X] 👁️ Watch: 5 V’s of Big Data (22 min)
-- [X] 👁️ Watch: Big Data and Distributed Systems (18 min)
-- [X] 👁️ Watch: Designing a Good Big Data System (11 min)
-- [X] 👁️ Watch: On-Premise vs Cloud (20 min)
-- [X] ⌨️ Build: Draw the 5 V’s with a code cell using `print()` or a markdown table — make it your own cheatsheet
-- [X] 🗣️ Explain: *“Why can’t a single machine handle Big Data? What does ‘distributed’ actually mean?”*
-
-**Practice Tasks**
-
-```
-1. In your notebook, write a real-world example for each of the 5 V's (not the textbook ones).
-2. Compare AWS S3 vs on-premise HDFS — write 3 pros/cons each in a markdown cell.
-3. Sketch (in text/table) what a good Big Data system looks like for an e-commerce company.
-```
-
------
-
-### 📓 `bigdata02_storage_patterns.ipynb`
-
-**Topics:** DB vs Data Warehouse vs Data Lake · ETL vs ELT · Data Engineer’s Role
-
-- [X] 👁️ Watch: Database vs Data Warehouse vs Data Lake (29 min)
-- [X] 👁️ Watch: ETL vs ELT (22 min)
-- [X] 👁️ Watch: What Does a Data Engineer Do (18 min)
-- [X] ⌨️ Build: Create a comparison table in markdown: DB / DW / Data Lake — schema, use case, example tools
-- [X] 🗣️ Explain: *“When would I use ETL vs ELT? What does a Data Engineer own that a Data Scientist doesn’t?”*
-
-**Practice Tasks**
-
-```
-1. Map Snowflake, Redshift, S3, MySQL, Hive to: DB / Data Warehouse / Data Lake.
-2. Design a simple ETL flow (text/diagram) for loading sales data into a warehouse.
-3. Write what your day as a Data Engineer might look like (pipeline breaks, ingestion jobs, etc.)
-```
-
------
-
------
-
-## 🐘 PHASE 7 — Hadoop + HDFS
-
-### *Your first distributed system. This is where it gets real.*
-
-> You’ll be working on a real GCP cluster here. Don’t just watch — actually run every command. The muscle memory matters more than the theory.
-
------
-
-### 📓 `hadoop01_hdfs_architecture.ipynb`
-
-**Topics:** Hadoop Intro · Properties · Ecosystem · HDFS Concepts · Architecture · Blocks · Replication · Rack Awareness
-
-- [X] 👁️ Watch: Introduction to Hadoop (6 min)
-- [X] 👁️ Watch: Properties of Hadoop (10 min)
-- [X] 👁️ Watch: Hadoop Ecosystem (38 min)
-- [X] 👁️ Watch: Intro to HDFS & Terminology (23 min)
-- [X] 👁️ Watch: HDFS Architecture (16 min)
-- [ ] 👁️ Watch: Blocks in HDFS (12 min)
-- [ ] 👁️ Watch: Replication Factor (10 min)
-- [ ] 👁️ Watch: Rack Awareness (8 min)
-- [ ] ⌨️ Build: Document the full HDFS read/write flow as a step-by-step numbered list in your notebook
-- [ ] 🗣️ Explain: *“What is a NameNode vs DataNode? What happens if the NameNode goes down?”*
-
-**Practice Tasks**
-
-```
-1. Draw HDFS architecture (text/ASCII): show NameNode, 3 DataNodes, blocks, replication.
-2. Calculate: if block size = 128MB and replication = 3, how much space does a 1GB file use?
-3. Explain rack awareness to a 10 year old — write it in a markdown cell.
-```
-
------
-
-### 📓 `hadoop02_fault_tolerance.ipynb`
-
-**Topics:** Node Failure · Temporary/Permanent DataNode Failure · Secondary NameNode · Standby NameNode · HA Architecture · Write & Read Requests
-
-- [ ] 👁️ Watch: DataNode Failure — Temporary (12 min)
-- [ ] 👁️ Watch: DataNode Failure — Permanent (14 min)
-- [ ] 👁️ Watch: Secondary Name Node (17 min)
-- [ ] 👁️ Watch: Standby Name Node (11 min)
-- [ ] 👁️ Watch: Hadoop HA Architecture (20 min)
-- [ ] 👁️ Watch: Data Write in HDFS (23 min)
-- [ ] 👁️ Watch: Read Request in HDFS (11 min)
-- [ ] ⌨️ Build: Write out the full data write pipeline in steps. Then the full read pipeline. Compare them.
-- [ ] 🗣️ Explain: *“What is the difference between Secondary NameNode and Standby NameNode? Most people get this wrong.”*
-
-**Practice Tasks**
-
-```
-1. Explain what happens step-by-step when a DataNode fails mid-write.
-2. What is the role of the JournalNode in HA? Write 3 sentences.
-3. Compare Active NameNode vs Standby NameNode in a 2-column table.
-```
-
------
-
-### 📓 `hadoop03_cluster_commands.ipynb`
-
-**Topics:** GCP Cluster Setup · Linux Commands · HDFS Commands
-
-- [ ] 👁️ Watch: Create GCP Account (24 min)
-- [ ] 👁️ Watch: GCP Hadoop Cluster Creation (29 min)
-- [ ] 👁️ Watch: Exploring Hadoop Cluster (24 min)
-- [ ] 👁️ Watch: GCP Cluster Best Practices (4 min)
-- [ ] 👁️ Watch: Linux Commands 1 & 2 (~60 min)
-- [ ] 👁️ Watch: HDFS Commands (30 min)
-- [ ] ⌨️ Build: Create a cheatsheet cell with every HDFS command you used + what it does
-- [ ] ⌨️ Build: Run at least 10 HDFS commands on your cluster. Screenshot or paste outputs into notebook.
-- [ ] 🗣️ Explain: *“What is the difference between `hdfs dfs` and `hadoop fs`? Which commands do I use daily?”*
-
-**Practice Tasks**
-
-```
-1. Upload a local file to HDFS → list it → check its block info → delete it.
-2. Create a directory structure in HDFS: /user/yourname/data/raw/
-3. Write a mini Linux cheatsheet: 15 commands you'll use on a cluster (ls, grep, cat, chmod, etc.)
-```
-
------
-
------
-
-## 🔀 PHASE 8 — MapReduce
-
-### *Understand the engine Spark was built to replace.*
-
-> MapReduce is “old” but understanding it deeply is why Spark will make perfect sense to you.
-
------
-
-### 📓 `mapreduce01_concepts.ipynb`
-
-**Topics:** Distributed Processing · MapReduce Introduction · MR & Cluster
-
-- [ ] 👁️ Watch: Intro to Distributed Processing (12 min)
-- [ ] 👁️ Watch: MapReduce Introduction (17 min)
-- [ ] 👁️ Watch: MapReduce & Cluster (12 min)
-- [ ] ⌨️ Build: Write the Map and Reduce steps for a word count problem using plain Python dicts (simulate it)
-- [ ] 🗣️ Explain: *“What is shuffling? Why is it the most expensive step in MapReduce?”*
-
-**Practice Tasks**
-
-```
-1. Simulate MapReduce word count in pure Python — map() then reduce() manually.
-2. Draw the full MR flow: Input → Split → Map → Shuffle → Reduce → Output.
-3. What is a Combiner and why does it exist? Write an analogy.
-```
-
------
-
-### 📓 `mapreduce02_practicals.ipynb`
-
-**Topics:** MR Practicals · 1/2 Reducers · Combiner · 0 Reducer · Big Log File · Input Split
-
-- [ ] 👁️ Watch: MR Practical Part 1 & 2 (~40 min)
-- [ ] 👁️ Watch: MR with 1 Reducer (40 min)
-- [ ] 👁️ Watch: MR with 2 Reducers (29 min)
-- [ ] 👁️ Watch: Combiner in MR (13 min)
-- [ ] 👁️ Watch: MR with 0 Reducer (16 min)
-- [ ] 👁️ Watch: MR on Big Log File (21 min)
-- [ ] 👁️ Watch: Input Split in MR (7 min)
-- [ ] ⌨️ Build: Run the word count MR job on your GCP cluster. Then run with 2 reducers. Compare output.
-- [ ] 🗣️ Explain: *“When would I use 0 reducers? What changes when I increase reducers from 1 to 2?”*
-
-**Practice Tasks**
-
-```
-1. Run MR job on a log file → extract ERROR lines → count by error type.
-2. Add a Combiner to your word count. Check if output changes. Why or why not?
-3. Change reducer count to 0. What gets skipped? Document your observation.
-```
-
------
-
------
-
-## 🧶 PHASE 9 — YARN
-
-### *The traffic controller of your cluster.*
-
------
-
-### 📓 `yarn01_resource_management.ipynb`
-
-**Topics:** YARN Introduction · Components · Analogy · Step-by-Step Process
-
-- [ ] 👁️ Watch: YARN Introduction (6 min)
-- [ ] 👁️ Watch: Components of YARN (22 min)
-- [ ] 👁️ Watch: YARN Analogy (6 min)
-- [ ] 👁️ Watch: YARN Process Step by Step (28 min)
-- [ ] ⌨️ Build: Map the YARN components (ResourceManager, NodeManager, ApplicationMaster, Container) to a restaurant analogy in your own words
-- [ ] 🗣️ Explain: *“What does ApplicationMaster do that ResourceManager doesn’t? Where does your code actually run?”*
-
-**Practice Tasks**
-
-```
-1. Write the step-by-step of what happens when you submit a Spark job to YARN.
-2. Compare YARN to a traditional job scheduler. What problem did YARN solve?
-3. What happens if the NodeManager on one node crashes during a job?
-```
-
------
-
------
-
-## ⚗️ PHASE 10 — Functional Programming
-
-### *The mindset shift that makes Spark feel natural.*
-
------
-
-### 📓 `fp01_hof_lambda_map_filter.ipynb`
-
-**Topics:** Higher Order Functions · Lambda · Map / Filter / Reduce
-
-- [ ] 👁️ Watch: Higher Order Functions (27 min)
-- [ ] 👁️ Watch: Lambda Functions (12 min)
-- [ ] 👁️ Watch: Map, Filter and Reduce (17 min)
-- [ ] ⌨️ Build: Rewrite 3 `for` loops using `map()`, `filter()`, and `reduce()` each
-- [ ] ⌨️ Build: Write a HOF that takes a function as argument and applies it to a list
-- [ ] 🗣️ Explain: *“Why does Spark use functional programming? What is lazy evaluation in this context?”*
-
-**Practice Tasks**
-
-```
-1. Given a list of salaries, use map() to apply 10% raise, filter() to keep > 50k, reduce() to total.
-2. Write a function compose(f, g) that returns f(g(x)) — function composition.
-3. Rewrite the above using lambda functions only (no def).
-```
-
------
-
------
-
-## ⚡ PHASE 11 — Apache Spark Core
-
-### *The most important phase in this entire course. Take your time here.*
-
-> Spark is your primary tool as a Data Engineer. Don’t rush. Each notebook here is a building block. If you understand RDDs deeply, DataFrames will feel easy.
-
------
-
-### 📓 `spark01_introduction.ipynb`
-
-**Topics:** Spark Intro · Common Questions · Limitations of MR · Spark Features · Ecosystem
-
-- [ ] 👁️ Watch: Spark Introduction (11 min)
-- [ ] 👁️ Watch: Spark Common Questions (29 min)
-- [ ] 👁️ Watch: Limitations of MapReduce (8 min)
-- [ ] 👁️ Watch: What is Spark & Its Features (16 min)
-- [ ] 👁️ Watch: Spark Ecosystem (10 min)
-- [ ] ⌨️ Build: Create a side-by-side comparison table: MapReduce vs Spark (speed, storage, API, fault tolerance)
-- [ ] 🗣️ Explain: *“Why is Spark faster than MapReduce? What does ‘in-memory computation’ actually mean?”*
-
-**Practice Tasks**
-
-```
-1. List 5 real use cases where you'd pick Spark over MapReduce.
-2. Name all Spark ecosystem components and write 1-line descriptions.
-3. What does the Spark Driver do vs an Executor? Draw it.
-```
-
------
-
-### 📓 `spark02_rdd_core.ipynb`
-
-**Topics:** What is RDD · How Spark Reads Data · Partitioning · RDD Operations Pt1 & Pt2 · Transformation vs Action · Lazy Evaluation
-
-- [ ] 👁️ Watch: What is Spark RDD (12 min)
-- [ ] 👁️ Watch: How Spark Reads Data (17 min)
-- [ ] 👁️ Watch: Spark Read Data & Partitioning (19 min)
-- [ ] 👁️ Watch: Spark RDD Operations Pt 1 & 2 (~41 min)
-- [ ] 👁️ Watch: Transformation vs Action (17 min)
-- [ ] 👁️ Watch: Why Is Spark Lazy (16 min)
-- [ ] ⌨️ Build: Create an RDD → apply map, filter, flatMap → collect results → count
-- [ ] ⌨️ Build: Show that Spark does nothing until an action is called (use `.explain()` or print DAG)
-- [ ] 🗣️ Explain: *“What is an RDD partition? What is a DAG and why does Spark build one before executing?”*
-
-**Practice Tasks**
-
-```
-1. Create RDD from a list of 100 numbers. Filter evens. Square them. Sum all. (1 chain)
-2. Load a text file as RDD. Count unique words. Find the top 10 most frequent.
-3. Show the difference between map() and flatMap() with a concrete example.
-```
-
------
-
-### 📓 `spark03_transformations.ipynb`
-
-**Topics:** Narrow vs Wide Transformations · Jobs Stages Tasks in UI · GroupByKey vs ReduceByKey · Repartition vs Coalesce
-
-- [ ] 👁️ Watch: Narrow vs Wide Transformations (25 min)
-- [ ] 👁️ Watch: Jobs, Stages & Tasks in Spark UI (22 min)
-- [ ] 👁️ Watch: GroupByKey vs ReduceByKey Pt 1 & 2 (~39 min)
-- [ ] 👁️ Watch: Increasing/Decreasing Partitions (12 min)
-- [ ] 👁️ Watch: Repartition vs Coalesce (16 min)
-- [ ] ⌨️ Build: Run a `groupByKey` job AND a `reduceByKey` job on same data. Compare shuffle in Spark UI.
-- [ ] ⌨️ Build: Repartition an RDD to 8 parts. Then coalesce to 4. Check partition counts at each step.
-- [ ] 🗣️ Explain: *“Why is groupByKey dangerous? When would I ever use repartition vs coalesce?”*
-
-**Practice Tasks**
-
-```
-1. Write a word count using groupByKey. Then rewrite with reduceByKey. Compare performance.
-2. Create an RDD with 2 partitions → repartition to 10 → coalesce to 5. Print partition count.
-3. Identify which transformations cause a shuffle. List them all.
-```
-
------
-
-### 📓 `spark04_dataframes.ipynb`
-
-**Topics:** Higher Level APIs · DataFrame Intro · Reading from HDFS · Schema Enforcement · Read Modes · Write in Spark · Spark Operations · Data Types · Date Types
-
-- [ ] 👁️ Watch: Higher Level APIs — DataFrame & Tables (~22 min)
-- [ ] 👁️ Watch: DataFrames in Spark (9 min)
-- [ ] 👁️ Watch: Reading from HDFS (20 min)
-- [ ] 👁️ Watch: Spark Read — Transformation or Action (19 min)
-- [ ] 👁️ Watch: Schema Enforcement (21 min)
-- [ ] 👁️ Watch: Read Modes (16 min)
-- [ ] 👁️ Watch: Write in Spark (12 min)
-- [ ] 👁️ Watch: Spark Operations (28 min)
-- [ ] 👁️ Watch: Handling Data Types in PySpark (22 min)
-- [ ] 👁️ Watch: Handling Date Types (25 min)
-- [ ] ⌨️ Build: Read CSV → enforce schema manually → select, filter, groupBy, agg → write as Parquet
-- [ ] ⌨️ Build: Try all 3 read modes (PERMISSIVE, DROPMALFORMED, FAILFAST) on a corrupt CSV
-- [ ] 🗣️ Explain: *“Why should I always define schema explicitly? What is the cost of inferSchema=True?”*
-
-**Practice Tasks**
-
-```
-1. Read a CSV with 3 corrupt rows. Try each read mode. Document what happens.
-2. Read a CSV → cast age column to IntegerType → filter nulls → write to Parquet partitioned by city.
-3. Work with a date column: parse string → extract year/month/day → filter last 30 days.
-```
-
------
-
-### 📓 `spark05_execution.ipynb`
-
-**Topics:** Executing Code in Spark · Word Count · Ways to Run Spark · Data Generation · Project Steps
-
-- [ ] 👁️ Watch: Executing Code in Spark (29 min)
-- [ ] 👁️ Watch: Word Count Program in Spark (16 min)
-- [ ] 👁️ Watch: Ways to Run Spark (29 min)
-- [ ] 👁️ Watch: Data Generation + Project Steps (18 min)
-- [ ] ⌨️ Build: Run word count in 3 ways: spark-shell, spark-submit, notebook
-- [ ] 🗣️ Explain: *“When do I use spark-submit vs a notebook? What is local mode vs cluster mode?”*
-
-**Practice Tasks**
-
 ```
-1. Run the same word count job using spark-shell and then spark-submit. Note differences.
-2. Generate a synthetic dataset of 10,000 rows using Python/Faker. Load it into Spark.
-3. List the ways to run Spark and when you'd pick each one.
+LAYER 1 — 👁️  WATCH      Understand the concept
+LAYER 2 — ⌨️  BUILD      Fill the notebook yourself
+LAYER 3 — 🗣️  EXPLAIN    Write plain English answers at top
 ```
-
------
-
------
 
-## 🗃️ PHASE 12 — Spark SQL
+**Before starting anything new → run your last notebook cold for 10 min. That’s your revision.**
 
-### *SQL meets distributed computing.*
-
 -----
-
-### 📓 `sparksql01_tables.ipynb`
 
-**Topics:** Spark Tables · Temp Tables · Global Temp Tables · Persistent Tables · Spark SQL · Managed vs External · Creating DataFrames
+## 📊 PROGRESS SNAPSHOT — June 2026
 
-- [ ] 👁️ Watch: Spark Tables (6 min)
-- [ ] 👁️ Watch: Temporary Tables (10 min)
-- [ ] 👁️ Watch: Global Temporary Tables (10 min)
-- [ ] 👁️ Watch: Persistent Tables (15 min)
-- [ ] 👁️ Watch: Spark SQL (16 min)
-- [ ] 👁️ Watch: Managed vs External Tables (28 min)
-- [ ] 👁️ Watch: Creating DataFrames (13 min)
-- [ ] ⌨️ Build: Create a temp view → query it with SQL → create a global temp view → access from another session
-- [ ] ⌨️ Build: Create a managed table AND an external table. Drop both. See what happens to the data.
-- [ ] 🗣️ Explain: *“When do I use SQL vs DataFrame API in Spark? What’s the performance difference?”*
-
-**Practice Tasks**
-
 ```
-1. Load CSV → createOrReplaceTempView → run 5 SQL queries (filter, join, group, having, order).
-2. Create a managed table. Drop it. Check HDFS — is the data gone?
-3. Create an external table pointing to a CSV on HDFS. Drop it. Check HDFS — data still there?
+✅  DONE          Python Core (py01–py09)
+✅  DONE          Big Data Concepts (bigdata01–02)
+✅  DONE          Hadoop + HDFS (hadoop01–02)
+✅  DONE          Linux + HDFS Commands (hadoop03)
+✅  DONE          MapReduce + YARN (hadoop04)
+⚡  IN PROGRESS   SQL Mastery (01_basics ✅, 02_filtering ✅, 03+ pending)
+⚡  IN PROGRESS   Daily Python Practice (Day 01–05 done)
+🔥  UP NEXT       Apache Spark → this is where DE starts
+⬜  NOT STARTED   Hive · Kafka · Docker · Airflow · Databricks · Azure
 ```
-
------
-
------
-
-## 🧊 PHASE 13 — Spark Caching
-
-### *Speed up your pipelines by being strategic.*
 
------
-
-### 📓 `sparkcache01_persist.ipynb`
-
-**Topics:** Persist vs Cache · Difference · Common Questions · RDD Caching · DF Caching · Table Caching
-
-- [ ] 👁️ Watch: Persist and Caching (10 min)
-- [ ] 👁️ Watch: Difference Between Persist & Cache (9 min)
-- [ ] 👁️ Watch: Common Questions about Caching (17 min)
-- [ ] 👁️ Watch: RDD Caching — Small & Big File (~35 min)
-- [ ] 👁️ Watch: Caching DataFrame in Spark (16 min)
-- [ ] 👁️ Watch: Caching DF — Large File Pt 1 & 2 (~36 min)
-- [ ] 👁️ Watch: Spark Table Caching (27 min)
-- [ ] ⌨️ Build: Read a large file → run a transformation WITHOUT cache → measure time → cache it → rerun → compare
-- [ ] 🗣️ Explain: *“What storage levels exist in Spark? When should I NOT cache?”*
-
-**Practice Tasks**
+|Phase     |What                     |Status         |
+|:--------:|-------------------------|:-------------:|
+|Python    |py01–py09                |✅ Done         |
+|Big Data  |bigdata01–02             |✅ Done         |
+|Hadoop    |hadoop01–04              |✅ Done         |
+|SQL       |01–02 done, 03–11 pending|⚡ In Progress  |
+|**Spark** |**spark01–sparkproj02**  |**🔥 Start Now**|
+|Hive      |hive01                   |⬜              |
+|Kafka     |kafka01–02               |⬜              |
+|Docker    |docker01                 |⬜              |
+|Airflow   |airflow01–02             |⬜              |
+|Databricks|databricks01–02          |⬜              |
+|Azure     |azure01–02 + synapse01   |⬜              |
 
-```
-1. Run same aggregation 3 times without cache. Then cache + rerun 3 times. Record timings.
-2. Cache an RDD at MEMORY_AND_DISK level. Unpersist it. Verify it's gone in Spark UI.
-3. When would caching HURT performance? Write 2 real scenarios.
-```
-
 -----
 
------
+## ✅ PHASE 4 — Python for Data Engineering — DONE
 
-## 🏗️ PHASE 14 — Spark Architecture
+All 9 notebooks completed and pushed.
 
-### *Understand what’s happening under the hood.*
+|Notebook                                           |Topics                      |Status|
+|---------------------------------------------------|----------------------------|:----:|
+|`py01_functions_lambda_map.ipynb`                  |Functions, Lambda, Map      |✅     |
+|`py02_filter_modules_stdlib.ipynb`                 |Filter, Modules, Collections|✅     |
+|`py03_files_exceptions.ipynb`                      |File Ops, Exception Handling|✅     |
+|`py04_oop_inheritance.ipynb`                       |OOP, Classes, Inheritance   |✅     |
+|`py05_polymorphism_encapsulation_abstraction.ipynb`|OOP Pillars                 |✅     |
+|`py06_magic_methods_exceptions.ipynb`              |Magic Methods, Custom Errors|✅     |
+|`py07_numpy.ipynb`                                 |NumPy Arrays, Ops, Indexing |✅     |
+|`py08_pandas.ipynb`                                |Pandas, GroupBy, Merge      |✅     |
+|`py09_sqlite.ipynb`                                |SQLite with Python          |✅     |
 
 -----
-
-### 📓 `sparkarch01_cluster_modes.ipynb`
 
-**Topics:** Run Modes · Distributed Nature · Architecture & Components · Standalone Cluster · YARN on Spark · Deployment Modes
+## ⚡ PHASE 5 — SQL Mastery — IN PROGRESS
 
-- [ ] 👁️ Watch: Spark Architecture — Run Mode (7 min)
-- [ ] 👁️ Watch: Distributed Nature & In-Memory Computation (6 min)
-- [ ] 👁️ Watch: Spark Architecture & Components (25 min)
-- [ ] 👁️ Watch: Spark on Standalone Cluster (19 min)
-- [ ] 👁️ Watch: YARN Revision — Components & Step by Step (~50 min)
-- [ ] 👁️ Watch: YARN on Spark Architecture + UI (34 min)
-- [ ] 👁️ Watch: Standalone vs YARN (7 min)
-- [ ] 👁️ Watch: Deployment Modes in Spark (20 min)
-- [ ] ⌨️ Build: Draw full Spark on YARN architecture: Driver → AM → RM → NM → Executors → Tasks
-- [ ] 🗣️ Explain: *“What is the difference between client mode and cluster mode deployment? Which do I use in production?”*
+**Database:** `sql_mastery` in Databricks
+**Tables:** customers · orders · products · order_items · employees · departments
 
-**Practice Tasks**
+|File                     |Topics                            |Status|Score |
+|-------------------------|----------------------------------|:----:|:----:|
+|`00_data_setup.sql`      |Create Delta tables               |✅     |—     |
+|`01_basics.sql`          |SELECT, WHERE, ORDER BY, NULL     |✅     |7.5/10|
+|`02_filtering.sql`       |String, Date, CASE WHEN, Math, Agg|✅     |7.5/10|
+|`03_aggregations.sql`    |GROUP BY, HAVING                  |🔥 Next|—     |
+|`04_joins.sql`           |INNER, LEFT, RIGHT, SELF          |⬜     |—     |
+|`05_subqueries.sql`      |IN, EXISTS, Correlated            |⬜     |—     |
+|`06_window_functions.sql`|ROW_NUMBER, RANK, LAG, LEAD       |⬜     |—     |
+|`07_ctes.sql`            |CTEs, Chained CTEs                |⬜     |—     |
+|`08_string_date.sql`     |String/Date deep dive             |⬜     |—     |
+|`09_performance.sql`     |EXPLAIN, Query Optimization       |⬜     |—     |
+|`10_advanced.sql`        |MERGE, SCD, Advanced patterns     |⬜     |—     |
+|`11_projects.sql`        |End-to-end projects               |⬜     |—     |
 
-```
-1. Submit a Spark job in client mode. Then in cluster mode. Observe where the Driver runs.
-2. In Spark UI, find: how many executors, how many cores, how many stages for your last job.
-3. Compare Standalone vs YARN: when would a company use each?
-```
+**Rule:** Complete one module → get reviewed → unlock next.
 
 -----
 
------
+## ✅ PHASE 6 — Big Data Fundamentals — DONE
 
-## 🏆 PHASE 15 — Spark Projects
+|Notebook                          |Topics                                      |Status|
+|----------------------------------|--------------------------------------------|:----:|
+|`bigdata01_concepts.ipynb`        |5 V’s, Distributed Systems, Cloud vs On-Prem|✅ 6/10|
+|`bigdata02_storage_patterns.ipynb`|DB/DW/Lake, ETL vs ELT, Medallion           |✅     |
 
-### *This is where you become a practitioner, not just a learner.*
+**Key fixes still pending in bigdata01:**
 
-> These projects are the most valuable part of the course. Treat each like a real work assignment. Read the data, question it, clean it, transform it, optimize it.
+- Practice Tasks 1, 2, 3 empty
+- EXPLAIN Q4 (ETL vs ELT) and Q5 (Lake vs DW) empty
+- Fill these before Spark section
 
 -----
 
-### 📓 `sparkproj01_customer_pipeline.ipynb`
+## ✅ PHASE 7 — Hadoop + HDFS — DONE
 
-**Topics:** Read Data · Process Customer Data · Actionable Insights
+|Notebook                            |Topics                                          |Status|Score |
+|------------------------------------|------------------------------------------------|:----:|:----:|
+|`hadoop01_hdfs_architecture.ipynb`  |HDFS, NameNode, DataNode, Blocks, Rack Awareness|✅     |5.5/10|
+|`hadoop02_fault_tolerance.ipynb`    |FSImage, Edit Logs, Secondary NN, HA, Standby NN|✅     |6.5/10|
+|`hadoop03_linux_hdfs_commands.ipynb`|Linux Commands, HDFS CLI, GCP Cluster           |✅     |—     |
+|`hadoop04_mapreduce_yarn.ipynb`     |MapReduce concepts, YARN architecture           |✅     |—     |
 
-- [ ] 👁️ Watch: Read Data (12 min)
-- [ ] 👁️ Watch: Process Customer Data (32 min)
-- [ ] 👁️ Watch: Actionable Insights from Dataset (36 min)
-- [ ] ⌨️ Build: Reproduce the full pipeline end-to-end from scratch without looking
-- [ ] 🗣️ Explain: *“What transformations did I apply and why? What business question does each insight answer?”*
+**Key concepts understood:**
 
-**Practice Tasks**
-
-```
-1. After completing, modify the pipeline to add one new insight not in the video.
-2. Write the pipeline output to Parquet partitioned by customer region.
-3. Add logging to your pipeline: log row count before and after each transformation.
-```
+- FSImage = game save · Edit Log = moves after save · Secondary NN = auto-save
+- HA Architecture: Active NN + Standby NN + Journal Nodes + Zookeeper + ZKFC
+- Rack Awareness: 2 copies same rack + 1 different rack
+- YARN: ResourceManager + NodeManager + ApplicationMaster + Container
+- MapReduce: Map → Shuffle/Sort → Reduce (replaced by Spark)
 
 -----
 
-### 📓 `sparkproj02_ecommerce.ipynb`
+## 🔥 PHASE 8–15 — APACHE SPARK — START NOW
 
-**Topics:** E-commerce Dataset · Data Exploration · Ingestion · Cleaning · Joins · Window Functions · Aggregations · Enrichment
+> **This is 60% of every DE interview. Don’t rush it. Don’t skip it.**
 
-- [ ] 👁️ Watch: E-commerce Dataset Project (26 min)
-- [ ] 👁️ Watch: Data Exploration & Understanding (22 min)
-- [ ] 👁️ Watch: Data Ingestion into Dataproc Cluster (18 min)
-- [ ] 👁️ Watch: Data Exploration 1 & 2 (~40 min)
-- [ ] 👁️ Watch: Data Cleaning & Transformation (70 min)
-- [ ] 👁️ Watch: Data Integration — Joining Datasets (26 min)
-- [ ] 👁️ Watch: Optimized Joins & Window Functions (20 min)
-- [ ] 👁️ Watch: Advanced Data Aggregations (25 min)
-- [ ] 👁️ Watch: Advanced Enrichment (30 min)
-- [ ] ⌨️ Build: Full pipeline. Ingest → Explore → Clean → Join → Aggregate → Enrich → Write
-- [ ] 🗣️ Explain: *“What window functions did I use? What is rank() vs dense_rank() vs row_number()?”*
+**Udemy Section reference:**
 
-**Practice Tasks**
-
 ```
-1. Use a window function to rank top 5 products by sales within each category.
-2. Find customers who placed orders in 3 consecutive months (use lag/lead).
-3. Join orders + customers + products. Calculate CLV (customer lifetime value) per user.
+Section 16  Higher Order Functions  ❌ SKIP (you know this already)
+Section 17  Apache Spark            ✅ WATCH ALL
+Section 18  Spark Core API - RDD    ✅ WATCH ALL
+Section 19  Spark DataFrame         ✅ WATCH ALL
+Section 20  Spark Table + SQL       ✅ WATCH ALL
+Section 21  Caching in Spark        ✅ WATCH ALL
+Section 22  Spark Architecture      ✅ WATCH ALL
+Section 23  Spark Project 1         ✅ BUILD
+Section 24  Spark Project 2         ✅ BUILD
 ```
-
------
-
-### 📓 `sparkproj03_optimization.ipynb`
-
-**Topics:** Spark Config Optimization · Join Optimization · Data Serving Layer
 
-- [ ] 👁️ Watch: Spark Configuration Optimization (18 min)
-- [ ] 👁️ Watch: Join Optimization Strategies (15 min)
-- [ ] 👁️ Watch: Data Serving Layer (20 min)
-- [ ] ⌨️ Build: Take your e-commerce pipeline → identify the slowest stage in Spark UI → apply one optimization
-- [ ] 🗣️ Explain: *“What is broadcast join? When do I use it? What spark configs affect performance most?”*
+|Notebook                             |Topics                                           |Status|
+|-------------------------------------|-------------------------------------------------|:----:|
+|`spark01_introduction.ipynb`         |Spark vs MR, Features, Ecosystem, Why Spark      |⬜     |
+|`spark02_rdd_core.ipynb`             |RDDs, Partitioning, Lazy Evaluation, DAG         |⬜     |
+|`spark03_transformations.ipynb`      |Narrow/Wide transforms, GroupByKey vs ReduceByKey|⬜     |
+|`spark04_dataframes.ipynb`           |DataFrames, Schema, Read/Write, Parquet          |⬜     |
+|`spark05_execution.ipynb`            |Running Spark, Word Count, SparkContext          |⬜     |
+|`sparksql01_tables.ipynb`            |Temp/Persistent/External Tables, Spark SQL       |⬜     |
+|`sparkcache01_persist.ipynb`         |Cache vs Persist, Storage Levels                 |⬜     |
+|`sparkarch01_cluster_modes.ipynb`    |Cluster Architecture, YARN mode, Deploy modes    |⬜     |
+|`sparkproj01_customer_pipeline.ipynb`|Customer data processing on Databricks           |⬜     |
+|`sparkproj02_ecommerce.ipynb`        |Ingest → Clean → Join → Aggregate → Serve        |⬜     |
 
-**Practice Tasks**
+**Target: Complete all Spark by June 30 2026**
 
-```
-1. Enable AQE (Adaptive Query Execution). Rerun your pipeline. Did it help?
-2. Broadcast a small lookup table in a join. Compare time with and without broadcast.
-3. Tune spark.executor.memory and spark.executor.cores. Document the effect.
-```
-
------
-
 -----
 
-## 🐝 PHASE 16 — Apache Hive
+## ⬜ PHASE 16 — Hive
 
-### *SQL on HDFS. The data warehouse layer.*
+|Notebook             |Topics                                 |Status|
+|---------------------|---------------------------------------|:----:|
+|`hive01_basics.ipynb`|Architecture, Tables, Metastore, HiveQL|⬜     |
 
 -----
 
-### 📓 `hive01_basics.ipynb`
-
-**Topics:** Hive Intro · How Hive Works · Architecture · Query Flow · Creating & Querying Tables · Metadata
-
-- [ ] 👁️ Watch: Introduction to Hive (7 min)
-- [ ] 👁️ Watch: How Hive Simplifies Big Data (9 min)
-- [ ] 👁️ Watch: Common Questions / Misconceptions (22 min)
-- [ ] 👁️ Watch: Connecting via Terminal & Beeline (21 min)
-- [ ] 👁️ Watch: Creating and Querying Table (24 min)
-- [ ] 👁️ Watch: Accessing Metadata in Hive (17 min)
-- [ ] 👁️ Watch: Hive Architecture & Components (21 min)
-- [ ] 👁️ Watch: Hive Query Flow (10 min)
-- [ ] 👁️ Watch: Derby DB in Hive (10 min)
-- [ ] ⌨️ Build: Create a Hive table on top of an HDFS file → run 5 queries → check metadata in metastore
-- [ ] 🗣️ Explain: *“How is Hive different from a regular database? What is a Hive metastore?”*
-
-**Practice Tasks**
-
-```
-1. Create an external Hive table on a CSV in HDFS. Run GROUP BY query.
-2. Access Hive metastore. Find table metadata (location, schema, partitions).
-3. What happens when you run a Hive query? Draw the execution flow.
-```
+## ⬜ PHASE 17 — Kafka
 
------
+|Notebook                           |Topics                              |Status|
+|-----------------------------------|------------------------------------|:----:|
+|`kafka01_architecture.ipynb`       |Topics, Partitions, Brokers, Offsets|⬜     |
+|`kafka02_producers_consumers.ipynb`|Producer/Consumer code, CLI         |⬜     |
 
 -----
 
-## 📨 PHASE 17 — Apache Kafka
+## ⬜ PHASE 18 — Docker
 
-### *Real-time data. This changes how you think about pipelines.*
+|Notebook                   |Topics                                 |Status|
+|---------------------------|---------------------------------------|:----:|
+|`docker01_containers.ipynb`|Containers, Images, Dockerfile, Compose|⬜     |
 
 -----
-
-### 📓 `kafka01_architecture.ipynb`
-
-**Topics:** Kafka Intro · Why Kafka · Architecture · Ways to Run · Confluent Setup
-
-- [ ] 👁️ Watch: Introduction to Apache Kafka (9 min)
-- [ ] 👁️ Watch: Why Kafka & Use Cases (14 min)
-- [ ] 👁️ Watch: Kafka Architecture (27 min)
-- [ ] 👁️ Watch: Ways to Run Kafka (10 min)
-- [ ] 👁️ Watch: Creating Confluent Kafka Cluster (22 min)
-- [ ] ⌨️ Build: Document Kafka architecture: Topic → Partition → Offset → Producer → Consumer → Broker
-- [ ] 🗣️ Explain: *“What is a consumer group? What is the role of an offset? Why does partition order matter?”*
 
-**Practice Tasks**
+## ⬜ PHASE 19 — Airflow
 
-```
-1. Draw Kafka architecture with 1 topic, 3 partitions, 2 consumers in a group.
-2. What happens if consumers > partitions? What if consumers < partitions?
-3. Explain Kafka retention and why it's different from a message queue like RabbitMQ.
-```
+|Notebook                      |Topics                            |Status|
+|------------------------------|----------------------------------|:----:|
+|`airflow01_dags.ipynb`        |DAGs, Operators, TaskFlow API     |⬜     |
+|`airflow02_etl_pipeline.ipynb`|ETL DAG, Postgres, API integration|⬜     |
 
 -----
-
-### 📓 `kafka02_producers_consumers.ipynb`
-
-**Topics:** Producing Messages · Multiple Messages · Callback Poll Flush · Consuming Messages · Confluent CLI
-
-- [ ] 👁️ Watch: Producing Messages to Kafka (31 min)
-- [ ] 👁️ Watch: Kafka Producers — Multiple Messages (17 min)
-- [ ] 👁️ Watch: Callback, Poll and Flush (4 min)
-- [ ] 👁️ Watch: Consuming Messages from Kafka (24 min)
-- [ ] 👁️ Watch: Confluent Kafka on CLI (35 min)
-- [ ] ⌨️ Build: Write a Python Producer → send 50 messages → write a Consumer → read and print all
-- [ ] 🗣️ Explain: *“What is poll()? Why must I call flush() before closing a producer?”*
 
-**Practice Tasks**
+## ⬜ PHASE 20 — Databricks
 
-```
-1. Produce 100 JSON messages (fake user events). Consume and print only 'purchase' events.
-2. Add a callback to your producer that prints success/failure for each message.
-3. Use Confluent CLI to describe your topic, list consumer groups, reset offsets.
-```
+|Notebook                     |Topics                                 |Status|
+|-----------------------------|---------------------------------------|:----:|
+|`databricks01_platform.ipynb`|DBFS, Architecture, Read/Write data    |⬜     |
+|`databricks02_projects.ipynb`|Customer + Order insights in Databricks|⬜     |
 
 -----
 
------
+## ⬜ PHASE 21-22 — Azure
 
-## 🐳 PHASE 18 — Docker
+|Notebook                        |Topics                                     |Status|
+|--------------------------------|-------------------------------------------|:----:|
+|`azure01_ingestion.ipynb`       |ADF, ADLS Gen2, Medallion, Bronze layer    |⬜     |
+|`azure02_transform_enrich.ipynb`|Databricks on Azure, Silver layer, Joins   |⬜     |
+|`synapse01_gold_layer.ipynb`    |Synapse, CETAS, External Tables, Gold layer|⬜     |
 
-### *Package once. Run anywhere.*
-
 -----
-
-### 📓 `docker01_containers.ipynb`
-
-**Topics:** What are Containers · Images vs Containers · Docker vs VMs · Installation · Creating Images · Commands · Docker Hub · Docker Compose
-
-- [ ] 👁️ Watch: What are Docker & Containers (12 min)
-- [ ] 👁️ Watch: Docker Images vs Containers (6 min)
-- [ ] 👁️ Watch: Docker vs Virtual Machines (8 min)
-- [ ] 👁️ Watch: Docker Installation (12 min)
-- [ ] 👁️ Watch: Creating Docker Image (14 min)
-- [ ] 👁️ Watch: Docker Basic Commands (19 min)
-- [ ] 👁️ Watch: Push Docker Image to Docker Hub (9 min)
-- [ ] 👁️ Watch: Docker Compose (18 min)
-- [ ] ⌨️ Build: Write a Dockerfile for a Python script → build it → run it → push to Docker Hub
-- [ ] ⌨️ Build: Write a docker-compose.yml with 2 services (e.g. Python app + Postgres)
-- [ ] 🗣️ Explain: *“What is a Docker layer? What is the difference between CMD and ENTRYPOINT?”*
-
-**Practice Tasks**
-
-```
-1. Dockerize one of your Python scripts. Build → run → verify output.
-2. Create docker-compose with Airflow (or any two services). Start both with one command.
-3. Write a cheatsheet of 10 docker commands you'll use regularly.
-```
 
------
+## 🐍 DE DAILY PRACTICE — Python Only
 
------
+**Repo:** `de-daily-practice`
+**Schedule:** Jun 01 → Jul 28 2026 (45 working days)
+**Format:** 2 Python questions per day · Concept recap included
 
-## 🌬️ PHASE 19 — Apache Airflow + ETL Pipeline
+|Days |Topics                                               |Status|
+|-----|-----------------------------------------------------|:----:|
+|01–05|Lists, Dicts, Sets, Comprehensions, Map/Filter/Reduce|✅ Done|
+|06–10|Files, Exceptions, Strings, Dates, Dicts deep        |⬜     |
+|11–20|NumPy, Pandas (all operations)                       |⬜     |
+|21–30|ETL, SQLite, Logging, Mini Project                   |⬜     |
+|31–38|OOP, Decorators, Generators, APIs                    |⬜     |
+|39–45|Full pipelines, Real scenarios, Graduation           |⬜     |
 
-### *Orchestrate your pipelines like a pro.*
+**Rule:** 15 min attempt before Googling. Write what you tried even if wrong.
 
 -----
-
-### 📓 `airflow01_dags.ipynb`
-
-**Topics:** Airflow Intro · Key Components · Why Airflow · Astro Setup · First DAG · Math DAG · TaskFlow API
 
-- [ ] 👁️ Watch: Introduction to Apache Airflow (12 min)
-- [ ] 👁️ Watch: Key Components of Airflow (8 min)
-- [ ] 👁️ Watch: Why Airflow for Big Data & MLOps (7 min)
-- [ ] 👁️ Watch: Setting Up Airflow with Astro (15 min)
-- [ ] 👁️ Watch: Building First DAG (14 min)
-- [ ] 👁️ Watch: Mathematical Calculation DAG (21 min)
-- [ ] 👁️ Watch: TaskFlow API (10 min)
-- [ ] ⌨️ Build: Write a DAG with 4 tasks. Run it. Inspect logs for each task in Airflow UI.
-- [ ] 🗣️ Explain: *“What is a DAG? What is the difference between a task and an operator?”*
+## 🗓️ TIMELINE
 
-**Practice Tasks**
-
 ```
-1. Create a DAG that: generates data → cleans it → writes to CSV → sends a success log.
-2. Rewrite the same DAG using TaskFlow API (@task decorator).
-3. Intentionally fail one task. See how Airflow handles retries and alerts.
-```
-
------
+Jun 09 → Jun 30   Apache Spark (all 8 sections + 2 projects)
+                  Daily Python practice Day 06–22
+                  SQL: 03_aggregations + 04_joins
 
-### 📓 `airflow02_etl_pipeline.ipynb`
+Jul 01 → Jul 15   Kafka + Airflow + Docker + Hive
+                  START GitHub project
+                  Daily Python Day 23–38
 
-**Topics:** ETL Intro · Problem Statement · Defining DAG · Postgres Setup · NASA API · Transform & Load · Final ETL · Deployment
+Jul 15 → Jul 28   Databricks + Azure
+                  FINISH GitHub project
+                  Daily Python Day 39–45
+                  SQL: 05_subqueries through 07_ctes
 
-- [ ] 👁️ Watch: Introduction to ETL Pipeline (9 min)
-- [ ] 👁️ Watch: ETL Problem Statement & Setup (13 min)
-- [ ] 👁️ Watch: Defining ETL DAG (10 min)
-- [ ] 👁️ Watch: Postgres Table Setup (10 min)
-- [ ] 👁️ Watch: NASA API Integration (10 min)
-- [ ] 👁️ Watch: Transformation & Load Pipeline (6 min)
-- [ ] 👁️ Watch: Final ETL Implementation (14 min)
-- [ ] 👁️ Watch: Deployment in Astro Cloud & AWS (23 min)
-- [ ] ⌨️ Build: Rebuild the NASA ETL pipeline. Then swap NASA API for any other free API.
-- [ ] 🗣️ Explain: *“What does each task in the ETL DAG do? How is error handled at the load step?”*
+Aug 01            Update resume with project
+                  Update Naukri title to Data Engineer
+                  Start applying
 
-**Practice Tasks**
-
-```
-1. Rebuild the NASA ETL pipeline from scratch without looking.
-2. Add a new task: after loading, query Postgres and log the row count.
-3. Deploy your DAG to Astro Cloud. Trigger it manually. Check run history.
+Aug → Sep         Azure DE Associate certification
+                  dbt basics (2 weeks)
+                  Active job search
 ```
 
 -----
 
------
-
-## 🧱 PHASE 20 — Databricks
-
-### *Spark + collaboration + cloud, all in one.*
-
------
+## 🎯 GITHUB PROJECT PLAN
 
-### 📓 `databricks01_platform.ipynb`
+**Build after Spark Projects section (July 2026)**
 
-**Topics:** What is Databricks · Why Databricks · UI · Architecture · DBFS · Read Data
-
-- [ ] 👁️ Watch: What is Databricks (5 min)
-- [ ] 👁️ Watch: Why Databricks (10 min)
-- [ ] 👁️ Watch: Community Account Creation (12 min)
-- [ ] 👁️ Watch: Databricks UI Walkthrough (23 min)
-- [ ] 👁️ Watch: Databricks Architecture (14 min)
-- [ ] 👁️ Watch: Databricks File System (21 min)
-- [ ] 👁️ Watch: Read Data in Databricks (12 min)
-- [ ] ⌨️ Build: Upload a CSV to DBFS → read it in a notebook → run 5 transformations
-- [ ] 🗣️ Explain: *“What is DBFS? How is Databricks different from running Spark yourself on a cluster?”*
-
-**Practice Tasks**
-
 ```
-1. Upload your e-commerce dataset to DBFS. Read it. Schema-check. Show first 20 rows.
-2. Mount an external storage (or use DBFS). Write a Parquet file. Read it back.
-3. What is a Databricks cluster? What happens when it auto-terminates?
-```
-
------
-
-### 📓 `databricks02_projects.ipynb`
+Name:     logistics-de-pipeline
+Platform: Databricks Community Edition
+Domain:   Supply chain / logistics (matches your background)
 
-**Topics:** Process Customer Data · Customer Order Insights
+Pipeline:
+  Raw CSV orders
+    → PySpark ingestion (Bronze)
+    → PySpark cleaning + validation (Silver)
+    → PySpark aggregation: revenue by product/city/month (Gold)
+    → Spark SQL serving layer
+    → Orchestrated by Airflow
 
-- [ ] 👁️ Watch: Process Customer Data (32 min)
-- [ ] 👁️ Watch: Customer Order Insights (36 min)
-- [ ] ⌨️ Build: Rebuild both projects from scratch in Databricks. Same logic, your own code.
-- [ ] 🗣️ Explain: *“What did I learn here that I couldn’t do in a local Spark session?”*
-
-**Practice Tasks**
-
-```
-1. Add a visualization in Databricks (bar chart of top customers).
-2. Schedule your notebook to run daily using Databricks Jobs.
-3. Export your results from DBFS to a downloadable CSV.
+README must include:
+  - Architecture diagram
+  - Problem statement
+  - Tech stack
+  - How to run
+  - Sample output / insights
 ```
-
------
-
------
-
-## ☁️ PHASE 21 — Azure End-to-End Project
-
-### *Production-grade. Real cloud. Real pipeline.*
 
-> This is where everything clicks together. ADF ingests → ADLS stores → Databricks transforms → Synapse serves. Bronze → Silver → Gold.
+**This is non-negotiable. Resume without project = rejected by most companies.**
 
 -----
 
-### 📓 `azure01_ingestion.ipynb`
-
-**Topics:** Azure Setup · ADF · ADLS Gen2 · Medallion Architecture · Ingestion (batch + real-time + parameterized)
-
-- [ ] 👁️ Watch: Creating Azure Account (7 min)
-- [ ] 👁️ Watch: Azure Cloud Overview (8 min)
-- [ ] 👁️ Watch: Project Architecture (11 min)
-- [ ] 👁️ Watch: Dataset Overview — Olist Dataset (7 min)
-- [ ] 👁️ Watch: SQL DB & Data Ingestion (25 min)
-- [ ] 👁️ Watch: Azure Data Factory (19 min)
-- [ ] 👁️ Watch: ADLS Gen2 Storage Account (10 min)
-- [ ] 👁️ Watch: Medallion Architecture (5 min)
-- [ ] 👁️ Watch: Ingestion with ADF (14 min)
-- [ ] 👁️ Watch: Real Time Ingestion with ADF (26 min)
-- [ ] 👁️ Watch: Parameterized Ingestion with ADF (15 min)
-- [ ] ⌨️ Build: Set up ADF pipeline → ingest Olist data → land in Bronze layer of ADLS Gen2
-- [ ] 🗣️ Explain: *“What is the Medallion Architecture? What goes in Bronze vs Silver vs Gold?”*
-
-**Practice Tasks**
+## 💼 WHAT GETS YOU HIRED
 
 ```
-1. Create a parameterized ADF pipeline that can ingest any table from your SQL DB.
-2. Verify your data landed correctly in ADLS Gen2 Bronze container. Check file format.
-3. Draw the full ingestion architecture you built: source → ADF → ADLS → layers.
-```
-
------
-
-### 📓 `azure02_transform_enrich.ipynb`
-
-**Topics:** Azure Databricks · MongoDB Ingestion · ADLS Connection · Data Cleaning · Enrichment · Joins · Visualization · Silver Layer Export
+Minimum for August 2026 applications:
+✅ Spark + PySpark (in progress)
+✅ SQL — Window Functions + CTEs minimum
+✅ Python — solid fundamentals (done)
+✅ One GitHub project live (build in July)
+✅ Databricks hands-on (daily use)
+✅ Basic Airflow knowledge
 
-- [ ] 👁️ Watch: Azure Databricks Setup & Overview (~18 min)
-- [ ] 👁️ Watch: MongoDB Ingestion to Databricks (8 min)
-- [ ] 👁️ Watch: ADLS Gen2 to Databricks Connection (13 min)
-- [ ] 👁️ Watch: Data Enrichment, Cleaning & Insights (~30 min)
-- [ ] 👁️ Watch: Spark Transformations (~5 min)
-- [ ] 👁️ Watch: Joining & Enriching Data (~15 min)
-- [ ] 👁️ Watch: Visualizing Data in Databricks (7 min)
-- [ ] 👁️ Watch: Exporting Data to Silver Layer (11 min)
-- [ ] ⌨️ Build: Connect Databricks to ADLS → read Bronze → clean → join → write to Silver
-- [ ] 🗣️ Explain: *“What cleaning steps were essential? What does the Silver layer guarantee about data quality?”*
+Target companies (realistic for first DE role):
+→ Delhivery, Meesho, Razorpay, Zepto
+→ Porter, Shadowfax, Nykaa, Chargebee
+→ Deloitte Data Practice, Accenture DE
 
-**Practice Tasks**
-
-```
-1. Read from Bronze. Find nulls, duplicates, type mismatches. Fix all three.
-2. Join orders + customers + products. Add a derived column (e.g. revenue = qty × price).
-3. Write cleaned data to Silver as Parquet. Partition by order_date.
+JP Morgan / Goldman / Big Banks:
+→ Realistic after 2-3 years DE experience
+→ Not for first DE role
 ```
-
------
-
------
-
-## 🔷 PHASE 22 — Azure Synapse Analytics
 
-### *Serve the Gold layer. This is what the business sees.*
-
 -----
-
-### 📓 `synapse01_gold_layer.ipynb`
-
-**Topics:** Synapse Overview · UI · Lake Access · SQL Pools · CETAS · External Tables · Workflow
 
-- [ ] 👁️ Watch: Synapse Overview & Account Creation (12 min)
-- [ ] 👁️ Watch: Synapse UI Overview (13 min)
-- [ ] 👁️ Watch: Synapse to Lake Access (7 min)
-- [ ] 👁️ Watch: Dedicated vs Serverless SQL Pool (3 min)
-- [ ] 👁️ Watch: Access Lake Data (8 min)
-- [ ] 👁️ Watch: Create Gold View and Schema (2 min)
-- [ ] 👁️ Watch: CETAS Understanding (11 min)
-- [ ] 👁️ Watch: Create External Serving Table (4 min)
-- [ ] 👁️ Watch: Synapse Workflow (3 min)
-- [ ] ⌨️ Build: Connect Synapse to Silver layer → write CETAS query → create Gold external table → query it
-- [ ] 🗣️ Explain: *“What is CETAS? Why create external tables instead of loading data into Synapse directly?”*
+## 📁 ALL NOTEBOOKS — QUICK REFERENCE
 
-**Practice Tasks**
+|Notebook                                           |Phase        |Status|
+|---------------------------------------------------|:-----------:|:----:|
+|`py01_functions_lambda_map.ipynb`                  |Python       |✅     |
+|`py02_filter_modules_stdlib.ipynb`                 |Python       |✅     |
+|`py03_files_exceptions.ipynb`                      |Python       |✅     |
+|`py04_oop_inheritance.ipynb`                       |Python       |✅     |
+|`py05_polymorphism_encapsulation_abstraction.ipynb`|Python       |✅     |
+|`py06_magic_methods_exceptions.ipynb`              |Python       |✅     |
+|`py07_numpy.ipynb`                                 |Python       |✅     |
+|`py08_pandas.ipynb`                                |Python       |✅     |
+|`py09_sqlite.ipynb`                                |Python       |✅     |
+|`bigdata01_concepts.ipynb`                         |Big Data     |✅     |
+|`bigdata02_storage_patterns.ipynb`                 |Big Data     |✅     |
+|`hadoop01_hdfs_architecture.ipynb`                 |Hadoop       |✅     |
+|`hadoop02_fault_tolerance.ipynb`                   |Hadoop       |✅     |
+|`hadoop03_linux_hdfs_commands.ipynb`               |Hadoop       |✅     |
+|`hadoop04_mapreduce_yarn.ipynb`                    |Hadoop       |✅     |
+|`spark01_introduction.ipynb`                       |Spark        |⬜     |
+|`spark02_rdd_core.ipynb`                           |Spark        |⬜     |
+|`spark03_transformations.ipynb`                    |Spark        |⬜     |
+|`spark04_dataframes.ipynb`                         |Spark        |⬜     |
+|`spark05_execution.ipynb`                          |Spark        |⬜     |
+|`sparksql01_tables.ipynb`                          |Spark SQL    |⬜     |
+|`sparkcache01_persist.ipynb`                       |Spark Cache  |⬜     |
+|`sparkarch01_cluster_modes.ipynb`                  |Spark Arch   |⬜     |
+|`sparkproj01_customer_pipeline.ipynb`              |Spark Project|⬜     |
+|`sparkproj02_ecommerce.ipynb`                      |Spark Project|⬜     |
+|`hive01_basics.ipynb`                              |Hive         |⬜     |
+|`kafka01_architecture.ipynb`                       |Kafka        |⬜     |
+|`kafka02_producers_consumers.ipynb`                |Kafka        |⬜     |
+|`docker01_containers.ipynb`                        |Docker       |⬜     |
+|`airflow01_dags.ipynb`                             |Airflow      |⬜     |
+|`airflow02_etl_pipeline.ipynb`                     |Airflow      |⬜     |
+|`databricks01_platform.ipynb`                      |Databricks   |⬜     |
+|`databricks02_projects.ipynb`                      |Databricks   |⬜     |
+|`azure01_ingestion.ipynb`                          |Azure        |⬜     |
+|`azure02_transform_enrich.ipynb`                   |Azure        |⬜     |
+|`synapse01_gold_layer.ipynb`                       |Azure Synapse|⬜     |
 
-```
-1. Write a CETAS query that creates a Gold table: top 10 products by revenue per region.
-2. Query your Gold table from Synapse Studio using Serverless SQL Pool.
-3. What is the difference between Dedicated SQL Pool and Serverless? When do you use each?
-```
-
 -----
-
------
-
-## 🎓 YOU MADE IT.
 
 ```
 Bronze → Silver → Gold
@@ -1021,50 +389,9 @@ Raw → Processed → Served
 Learner → Builder → Engineer
 ```
 
-> *The person who finishes this course isn’t the one who watched every video.
+> *The person who finishes this isn’t the one who watched every video.
 > It’s the one who built every notebook, broke things, fixed them, and kept going.*
 
 -----
 
-## 📁 ALL YOUR NOTEBOOKS — QUICK REFERENCE
-
-|Notebook Name                        |Phase|Topics Covered                                      |
-|-------------------------------------|:---:|----------------------------------------------------|
-|`py07_data_manipulation.ipynb`       |4    |Pandas, Data Analysis, CSV/JSON Reading             |
-|`py08_sqlite_logging.ipynb`          |4    |SQLite, Python Logging                              |
-|`sql01_intermediate.ipynb`           |5    |Joins, Subqueries, GROUP BY, HAVING                 |
-|`bigdata01_concepts.ipynb`           |6    |5 V’s, Distributed Systems, Cloud vs On-Prem        |
-|`bigdata02_storage_patterns.ipynb`   |6    |DB/DW/Lake, ETL vs ELT, Data Engineer Role          |
-|`hadoop01_hdfs_architecture.ipynb`   |7    |HDFS, NameNode, DataNode, Blocks, Replication       |
-|`hadoop02_fault_tolerance.ipynb`     |7    |Node Failure, HA, Write/Read Flow                   |
-|`hadoop03_cluster_commands.ipynb`    |7    |GCP Cluster, Linux, HDFS CLI                        |
-|`mapreduce01_concepts.ipynb`         |8    |MR Intro, Map/Shuffle/Reduce, Combiner Theory       |
-|`mapreduce02_practicals.ipynb`       |8    |MR Practicals, Reducers, Log File, Input Split      |
-|`yarn01_resource_management.ipynb`   |9    |YARN Components, Step-by-Step Process               |
-|`fp01_hof_lambda_map_filter.ipynb`   |10   |HOFs, Lambda, Map/Filter/Reduce                     |
-|`spark01_introduction.ipynb`         |11   |Spark vs MR, Features, Ecosystem                    |
-|`spark02_rdd_core.ipynb`             |11   |RDDs, Partitioning, Lazy Eval, Actions vs Transforms|
-|`spark03_transformations.ipynb`      |11   |Narrow/Wide, GroupByKey vs ReduceByKey, Repartition |
-|`spark04_dataframes.ipynb`           |11   |DataFrames, Schema, Read Modes, Write, Date Types   |
-|`spark05_execution.ipynb`            |11   |Running Spark, Word Count, Data Generation          |
-|`sparksql01_tables.ipynb`            |12   |Temp/Persistent/External Tables, Spark SQL          |
-|`sparkcache01_persist.ipynb`         |13   |Cache vs Persist, Storage Levels, RDD/DF Caching    |
-|`sparkarch01_cluster_modes.ipynb`    |14   |Architecture, YARN, Standalone, Deploy Modes        |
-|`sparkproj01_customer_pipeline.ipynb`|15   |Customer Data Processing, Insights                  |
-|`sparkproj02_ecommerce.ipynb`        |15   |E-commerce: Ingest → Clean → Join → Aggregate       |
-|`sparkproj03_optimization.ipynb`     |15   |Configs, Broadcast Join, AQE, Serving Layer         |
-|`hive01_basics.ipynb`                |16   |Hive Architecture, Tables, Metadata, Beeline        |
-|`kafka01_architecture.ipynb`         |17   |Topics, Partitions, Brokers, Confluent Setup        |
-|`kafka02_producers_consumers.ipynb`  |17   |Producer/Consumer Code, CLI, Callbacks              |
-|`docker01_containers.ipynb`          |18   |Containers, Images, Dockerfile, Docker Compose      |
-|`airflow01_dags.ipynb`               |19   |DAGs, Operators, TaskFlow API                       |
-|`airflow02_etl_pipeline.ipynb`       |19   |ETL DAG, NASA API, Postgres, Astro Deploy           |
-|`databricks01_platform.ipynb`        |20   |Databricks, DBFS, Architecture                      |
-|`databricks02_projects.ipynb`        |20   |Customer & Order Insights in Databricks             |
-|`azure01_ingestion.ipynb`            |21   |ADF, ADLS Gen2, Medallion, Bronze Layer             |
-|`azure02_transform_enrich.ipynb`     |21   |Databricks on Azure, Silver Layer, Joins            |
-|`synapse01_gold_layer.ipynb`         |22   |Synapse, CETAS, External Tables, Gold Layer         |
-
------
-
-*Built for focus. Built for progress. Built for you. — May 2026*
+*Started: May 2026 · Target hiring: August 2026 · Updated: June 2026*
