@@ -35,19 +35,29 @@ GROUP BY status;
 
 -- ⌨️ Q1: Total orders and total revenue per customer_id
 -- YOUR QUERY:
+select customer_id,count(order_id)as count_of_order,sum(total) as revenue
+from orders
+group by customer_id
+
 
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Number of products per category with average price
 -- YOUR QUERY:
-
+select category,count(product_id) as no_of_prod,avg(price) as avg_price 
+from products 
+group by category
 
 -- COMMAND ----------
 
 -- ⌨️ Q3: Count of orders per status (completed / pending / cancelled)
 --        Also show % of total orders each status represents
 -- YOUR QUERY:
+
+
+select status,count(order_id) as or_count ,(sum(total)/(select sum(total) from orders))*100 as Perc_total from orders
+group by status
 
 
 -- COMMAND ----------
