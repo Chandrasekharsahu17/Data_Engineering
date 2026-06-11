@@ -88,12 +88,21 @@ HAVING COUNT(*) > 1;   -- only cities with more than 1 customer
 -- ⌨️ Q1: Find cities with more than 1 customer
 -- YOUR QUERY:
 
+select city from customers
+group by city
+having count(customer_id)>1
+
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Find customers who have placed more than 2 orders
 -- YOUR QUERY:
 
+select o.customer_id,c.name,count(o.order_id) from orders o 
+join customers c
+on o.customer_id=c.customer_id
+group by o.customer_id,c.name
+having count(o.order_id)>2
 
 -- COMMAND ----------
 
