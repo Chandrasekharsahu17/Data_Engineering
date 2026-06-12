@@ -56,7 +56,7 @@ group by category
 -- YOUR QUERY:
 
 
-select status,count(order_id) as or_count ,(sum(total)/(select sum(total) from orders))*100 as Perc_total from orders
+select status,count(order_id) as or_count ,(count(total)/(select count(total) from orders))*100 as Perc_total from orders
 group by status
 
 
@@ -64,7 +64,8 @@ group by status
 
 -- 🗣️ EXPLAIN: Why can't you SELECT a column that isn't in GROUP BY or an aggregate?
 --             What rule does SQL enforce here and why?
--- YOUR ANSWER:
+-- YOUR ANSWER:it wont show us the result if its not in the select
+-- SQL enforce to select column in group by which are already in select column
 
 
 -- COMMAND ----------
@@ -108,16 +109,23 @@ having count(o.order_id)>2
 
 -- ⌨️ Q3: Find product categories where the average price is above 20000
 -- YOUR QUERY:
-
+select category,avg(price) from products
+group by category
+having avg(price)>20000
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: Write Q2 using WHERE instead of HAVING. Run it. What error do you get?
 --             Explain exactly why WHERE cannot be used here.
 -- YOUR EXPERIMENT:
-
+select o.customer_id,c.name,count(o.order_id) from orders o 
+join customers c
+on o.customer_id=c.customer_id
+group by o.customer_id,c.name
+where count(o.order_id)>2
 
 -- YOUR ANSWER:
+-- where cant be used as no filter condition can be applied 
 
 
 -- COMMAND ----------
@@ -128,9 +136,25 @@ having count(o.order_id)>2
 
 -- COMMAND ----------
 
+select * from orders
+
+-- COMMAND ----------
+
 -- ⌨️ Q1: Count of orders by size bucket (Small / Medium / Large)
 --        Use CASE WHEN inside GROUP BY
 -- YOUR QUERY:
+
+
+select category,count(category) from(select * , CASE
+
+    when total >= 5000 then "Large"  
+    when total < 5000 and total >= 2000 then "Medium" 
+    when total < 2000 then "Low" 
+    end as category
+
+from orders)
+group by category
+
 
 
 -- COMMAND ----------
@@ -139,6 +163,23 @@ having count(o.order_id)>2
 --        (hint: use SUM with CASE WHEN inside it — called conditional aggregation)
 -- YOUR QUERY:
 
+select sum(case when
+            status ='completed' then total
+            else 0
+            end 
+)as completed_sum
+, sum(case when
+            status ='pending' or status ='cancelled'  then total
+            else 0
+            end 
+) as un_completed_sum
+from orders
+
+
+
+-- COMMAND ----------
+
+select * from employees
 
 -- COMMAND ----------
 
@@ -147,14 +188,21 @@ having count(o.order_id)>2
 --        hired 2018–2020   → 'Mid'
 --        hired after 2020  → 'Junior'
 -- YOUR QUERY:
-
+select case when
+    DATE(hire_date) < '2018-01-01' then "Senior"
+    when DATE(hire_date)  >='2018-01-01' and DATE(hire_date)  <= '2020-12-31' then "mid"
+    when DATE(hire_date)  >='2021-01-01' then "Junior"
+    end as seniority_level,
+count(name)
+from employees
+group by seniority_level
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: What is conditional aggregation? 
 --             Show the pattern: SUM(CASE WHEN ... THEN value ELSE 0 END)
 -- YOUR ANSWER + EXAMPLE:
-
+-- conditional aggrement when we use aggregation inside a condition that is called conditional aggregation likw we create the condition and aggregate like sum is applied there and then show the results
 
 -- COMMAND ----------
 
@@ -165,29 +213,50 @@ having count(o.order_id)>2
 
 -- COMMAND ----------
 
+Select * from customers
+
+
+-- COMMAND ----------
+
 -- ⌨️ Q1: Write one query that uses WHERE, GROUP BY, HAVING, ORDER BY all together
 --        Goal: cities with total order revenue > 5000, sorted by revenue desc
 -- YOUR QUERY:
+select c.city,sum(o.total) from customers c
+join orders o on c.customer_id=o.customer_id
+group by city
+having sum(o.total)>5000
+order by sum(o.total) desc
+
 
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Try using a SELECT alias in a WHERE clause — document what happens
--- YOUR EXPERIMENT + COMMENT:
-
+-- YOUR EXPERIMENT + COMMENT: 
+SELECT city AS location
+FROM customers
+WHERE city = 'Mumbai';
+-- its not applicable as selct applical=ble only after from is apllied so it only takes mumbai as locationa d shows the values
 
 -- COMMAND ----------
 
 -- ⌨️ Q3: Try using a SELECT alias in ORDER BY — does it work in Spark SQL?
 --        Then try in HAVING — does that work?
--- YOUR EXPERIMENT + COMMENT:
+-- YOUR EXPERIMENT + COMMENT:  i dont know how it will work on sql need more clarity on this part i think i know how to get answersof it what will happen with it 
+SELECT city AS location
+FROM customers
+Order by city;
 
+SELECT city AS location
+FROM customers
+Group by city
+Having city="Delhi";
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: Write out the SQL execution order from memory.
 --             Why can you use a SELECT alias in ORDER BY but not WHERE?
--- YOUR ANSWER:
+-- YOUR ANSWER:from where groupby having  select orderby limit
 
 
 -- COMMAND ----------
@@ -196,9 +265,9 @@ having count(o.order_id)>2
 -- MAGIC ## ✅ Module 3 Checklist
 -- MAGIC | Topic | Queries Done? | Explained? |
 -- MAGIC |-------|--------------|------------|
--- MAGIC | 3.1 GROUP BY Basics | ☐ | ☐ |
--- MAGIC | 3.2 HAVING | ☐ | ☐ |
--- MAGIC | 3.3 GROUP BY + CASE WHEN | ☐ | ☐ |
--- MAGIC | 3.4 Execution Order | ☐ | ☐ |
+-- MAGIC | 3.1 GROUP BY Basics | ✅ | ✅  |
+-- MAGIC | 3.2 HAVING | ✅  | ✅  |
+-- MAGIC | 3.3 GROUP BY + CASE WHEN | ✅ | ✅  |
+-- MAGIC | 3.4 Execution Order | ✅  | ✅  |
 -- MAGIC
 -- MAGIC **All done → push → move to 04_joins.sql**
