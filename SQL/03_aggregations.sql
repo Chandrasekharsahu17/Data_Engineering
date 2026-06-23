@@ -235,7 +235,7 @@ order by sum(o.total) desc
 -- YOUR EXPERIMENT + COMMENT: 
 SELECT city AS location
 FROM customers
-WHERE city = 'Mumbai';
+WHERE location = 'Mumbai';
 -- its not applicable as selct applical=ble only after from is apllied so it only takes mumbai as locationa d shows the values
 
 -- COMMAND ----------

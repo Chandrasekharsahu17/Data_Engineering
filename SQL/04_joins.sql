@@ -37,13 +37,30 @@ LIMIT 5;
 
 -- ⌨️ Q1: Show all orders with customer name and city
 -- YOUR QUERY:
+select o.order_id,c.name,c.city from orders o  join customers c
+on o.customer_id=c.customer_id;
 
+-- if we want to see all orders
+
+-- select o.order_id,c.name,c.city from orders o  left join customers c
+-- on o.customer_id=c.customer_id;
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Show order_items with product name, qty, unit_price
 --        (join order_items with products)
 -- YOUR QUERY:
+select p.name,o.qty,o.unit_price from order_items o join products p 
+on o.product_id=p.product_id
+
+
+
+-- COMMAND ----------
+
+select * from order_items,orders,customers,products
+
+
+
 
 
 -- COMMAND ----------
@@ -52,13 +69,22 @@ LIMIT 5;
 --        Show: customer name, product name, qty, revenue (qty * unit_price)
 -- YOUR QUERY:
 
+select c.name,p.name,o_2.qty,o_2.qty*o_2.unit_price as revenue 
+from order_items o_2 join orders o
+on o_2.order_id = o.order_id
+join customers c 
+on o.customer_id=c.customer_id
+join products p 
+on o_2.product_id=p.product_id
+
+
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: What rows does INNER JOIN drop?
 --             Draw a simple Venn diagram in a comment showing what it keeps.
 -- YOUR ANSWER:
-
+-- INNER joins ALSO KNOWN AS JOINS keeps only what ever matching in both the tables and if null values are thre it doesnot match with the null values 
 
 -- COMMAND ----------
 
@@ -81,12 +107,15 @@ LEFT JOIN orders o ON c.customer_id = o.customer_id;
 
 -- ⌨️ Q1: All customers with their orders — include customers who have no orders
 -- YOUR QUERY:
-
+select c.name ,o.* from customers c left join orders o 
+on c.customer_id=o.customer_id
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: All products with their order_items — include products never ordered
 -- YOUR QUERY:
+select p.name, o.* from products p left join order_items o 
+on p.product_id=o.product_id
 
 
 -- COMMAND ----------
@@ -94,13 +123,15 @@ LEFT JOIN orders o ON c.customer_id = o.customer_id;
 -- ⌨️ Q3: Find customers who have NEVER placed an order
 --        (LEFT JOIN + WHERE order_id IS NULL)
 -- YOUR QUERY:
-
+select c.name from customers c left join orders o on c.customer_id=o.customer_id
+where o.order_id is null
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: What is the anti-join pattern? Write the pattern and give a real use case.
--- YOUR ANSWER:
+-- YOUR ANSWER:where we get all records from one table and we dont have matching column to join 
 
+-- all names from customers and no columns from Order_items
 
 -- COMMAND ----------
 
@@ -111,13 +142,17 @@ LEFT JOIN orders o ON c.customer_id = o.customer_id;
 
 -- ⌨️ Q1: RIGHT JOIN — show all orders even if customer record is missing
 -- YOUR QUERY:
+select o.*,c.name from customers c right join orders o 
+on o.customer_id=o.customer_id
 
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: FULL OUTER JOIN — all customers + all orders (even unmatched on both sides)
 --        Spark SQL supports FULL OUTER JOIN directly
--- YOUR QUERY:
+-- YOUR QUERY:i have not learnt spark sql i will write normal sql
+select c.*, o.* from customers c full join orders o 
+on c.customer_id=o.customer_id
 
 
 -- COMMAND ----------
@@ -125,13 +160,15 @@ LEFT JOIN orders o ON c.customer_id = o.customer_id;
 -- ⌨️ Q3: Find rows that exist in customers but NOT orders AND rows in orders but NOT customers
 --        (symmetric difference using FULL OUTER JOIN + WHERE)
 -- YOUR QUERY:
-
+select c.*, o.* from customers c full join orders o 
+on c.customer_id=o.customer_id
+where o.order_id is null
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: Why is RIGHT JOIN rarely used in practice?
 --             How do you convert any RIGHT JOIN to a LEFT JOIN?
--- YOUR ANSWER:
+-- YOUR ANSWER:which eve table comes in left and we can coniser all keys from there so mostly we use left join not right (guess)
 
 
 -- COMMAND ----------
@@ -155,12 +192,21 @@ LEFT JOIN employees m ON e.manager_id = m.emp_id;
 
 -- ⌨️ Q1: Show each employee with their manager's name
 -- YOUR QUERY:
-
+select e.name,m.name as manager from employees e
+left join employees m on e.manager_id=m.emp_id
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: Find employees who earn MORE than their manager
 -- YOUR QUERY:
+SELECT
+    e.name        AS employee,
+    e.salary      AS emp_salary,
+    m.name        AS manager,
+    m.salary      AS mgr_salary
+FROM employees e
+LEFT JOIN employees m ON e.manager_id = m.emp_id
+where e.salary > m.salary;
 
 
 -- COMMAND ----------
@@ -168,13 +214,14 @@ LEFT JOIN employees m ON e.manager_id = m.emp_id;
 -- ⌨️ Q3: Find all pairs of employees in the same department
 --        (avoid duplicates — only show where e1.emp_id < e2.emp_id)
 -- YOUR QUERY:
-
+select * from employees
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: What is a self join and when would you use it?
 --             Give 2 real-world scenarios beyond org charts.
--- YOUR ANSWER:
+-- YOUR ANSWER:when we join a table witht the same table and when we need info from same table 
+-- lets say this managaer wala table and another would be total person in school lets say children and parents in same table and children parents id is also in same row but name is in different column and we want to map how many childern are studying from each parents 
 
 
 -- COMMAND ----------
@@ -186,7 +233,8 @@ LEFT JOIN employees m ON e.manager_id = m.emp_id;
 
 -- ⌨️ Q1: Cross join departments and products — show all combinations
 --        How many rows do you get? Why?
--- YOUR QUERY + COMMENT:
+-- YOUR QUERY + COMMENT: 80 rows will be result
+select * from products p join departments 
 
 
 -- COMMAND ----------
@@ -199,13 +247,18 @@ ORDER BY sizes.size, tiers.tier;
 -- Now write your OWN cross join combining two real tables
 
 -- YOUR QUERY:
+SELECT Phones.Phone, colours.colour
+FROM (VALUES ('Iphone 16'), ('Iphone 17'), ('Iphone 17 Pro'), ('IPhone SliM')) AS Phones(Phone)
+CROSS JOIN (VALUES ('white'), ('red'), ('Black')) AS colours(colour)
+ORDER BY Phones.Phone, colours.colour;
 
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: When is CROSS JOIN useful vs dangerous?
 --             What happens to row count: table A (100 rows) CROSS JOIN table B (50 rows)?
--- YOUR ANSWER:
+-- YOUR ANSWER:it is useful when we need a lot of result like multipication on every row with other row like thsirt a with all size we need rows and it is danagerous it can generate very much rows our can generate a vast amount of storage
+-- 5000 rows will be generated
 
 
 -- COMMAND ----------
@@ -218,27 +271,40 @@ ORDER BY sizes.size, tiers.tier;
 -- ⌨️ Q1: 4-table join: customers → orders → order_items → products
 --        Show: customer name, product name, qty, line_total (qty * unit_price)
 -- YOUR QUERY:
-
+select c.name,p.name,o_2.qty,o_2.qty*o_2.unit_price as revenue 
+from order_items o_2 join orders o
+on o_2.order_id = o.order_id
+join customers c 
+on o.customer_id=c.customer_id
+join products p 
+on o_2.product_id=p.product_id
 
 -- COMMAND ----------
 
 -- ⌨️ Q2: employees → departments → manager (self join)
 --        Show: employee name, dept name, dept location, manager name
 -- YOUR QUERY:
-
+select e.name,d.dept_name,m.name as manager_name from employees e
+left join departments d on e.dept_id=d.dept_id
+left join employees m on e.manager_id=m.emp_id
 
 -- COMMAND ----------
 
 -- ⌨️ Q3: Find the top product by total revenue per city
 --        (customers → orders → order_items → products, group, rank)
 -- YOUR QUERY:
-
+select p.name ,c.city,sum(o_2.qty * o_2.unit_price) as revenue from customers c
+join orders o on c.customer_id=o.customer_id
+join order_items o_2 on o.order_id=o_2.order_id
+join products p on o_2.product_id=p.product_id
+group by c.city,p.name
+order by city,revenue desc
 
 -- COMMAND ----------
 
 -- 🗣️ EXPLAIN: Does the ORDER of tables in FROM/JOIN matter for results?
 --             Does it matter for performance in Spark? Why?
--- YOUR ANSWER:
+-- YOUR ANSWER:yes it matters a lot left side of join the rightside of join decide which table to take completely
 
 
 -- COMMAND ----------
@@ -279,12 +345,12 @@ ORDER BY sizes.size, tiers.tier;
 -- MAGIC ## ✅ Module 4 Checklist
 -- MAGIC | Topic | Queries Done? | Explained? |
 -- MAGIC |-------|--------------|------------|
--- MAGIC | 4.1 INNER JOIN | ☐ | ☐ |
--- MAGIC | 4.2 LEFT JOIN | ☐ | ☐ |
--- MAGIC | 4.3 FULL OUTER / RIGHT | ☐ | ☐ |
--- MAGIC | 4.4 Self JOIN | ☐ | ☐ |
--- MAGIC | 4.5 CROSS JOIN | ☐ | ☐ |
--- MAGIC | 4.6 Multi-table JOINs | ☐ | ☐ |
+-- MAGIC | 4.1 INNER JOIN | ✅ | ✅  |
+-- MAGIC | 4.2 LEFT JOIN | ✅  | ✅  |
+-- MAGIC | 4.3 FULL OUTER / RIGHT | ✅ | ✅  |
+-- MAGIC | 4.4 Self JOIN | ✅  | ✅  |
+-- MAGIC | 4.5 CROSS JOIN | ✅ | ✅  |
+-- MAGIC | 4.6 Multi-table JOINs | ✅  | ✅  |
 -- MAGIC | 4.7 Pitfalls & EXISTS | ☐ | ☐ |
 -- MAGIC
 -- MAGIC **All done → push → 05_subqueries.sql**
