@@ -17,22 +17,43 @@ USE sql_mastery;
 -- COMMAND ----------
 
 -- STUDY EXAMPLE
-SELECT product_id, name, unit_cost,
-       ROW_NUMBER() OVER (ORDER BY unit_cost DESC) AS rn,
-       RANK()       OVER (ORDER BY unit_cost DESC) AS rnk,
-       DENSE_RANK() OVER (ORDER BY unit_cost DESC) AS drnk
+SELECT product_id, name, price,
+       ROW_NUMBER() OVER (ORDER BY price DESC) AS rn,
+       RANK()       OVER (ORDER BY price DESC) AS rnk,
+       DENSE_RANK() OVER (ORDER BY price DESC) AS drnk
 FROM products;
+
+-- COMMAND ----------
+
+select * from products
+
 
 -- COMMAND ----------
 
 -- Q1: Rank products by unit_cost WITHIN each category (use PARTITION BY)
 -- YOUR CODE:
+select p.name,p.category,p.price,
+ROW_NUMber() OVER(PARTITION BY p.category order by p.price desc) as ran
+from products p
 
+
+
+-- COMMAND ----------
+
+select * from customers,order_items
 
 -- COMMAND ----------
 
 -- Q2: Find the top 2 highest-revenue products PER CITY using ROW_NUMBER + WHERE rn<=2
 -- YOUR CODE:
+select d.city,d.revenue,d.rnk 
+from (
+select c.city,sum(o.total) as revenue , 
+row_number () over(partition by c.city order by sum(o.total) desc) rnk
+from customers c 
+join orders o on c.customer_id=o.customer_id
+group by c.city
+) as d
 
 
 -- COMMAND ----------
